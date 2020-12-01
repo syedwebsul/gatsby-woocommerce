@@ -8,6 +8,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import './../../sass/common.scss';
+import './../../css/style.css';
 
 import Header from "../header";
 import Footer from "../footer";
