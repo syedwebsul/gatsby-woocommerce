@@ -19,15 +19,15 @@ const Product = (props) => {
     : "";
   const imgWidth = hasImagesSizes
     ? product.image.mediaDetails.sizes[3].width
-    : 450;
+    : 320;
   const imgHeight = hasImagesSizes
     ? product.image.mediaDetails.sizes[3].height
-    : 450;
+    : 320;
 
   return (
     // @TODO Need to handle Group products differently.
     !isEmpty(product) && "GroupProduct" !== product.nodeType ? (
-      <div className="col-lg-4 col-md-6 mb-5">
+      <div className="col-lg-3 col-md-6 mb-5">
         <Link to={product.link} className="product-image">
           {!isEmpty(product.image) ? (
 			<figure>

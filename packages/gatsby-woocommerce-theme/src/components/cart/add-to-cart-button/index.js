@@ -74,16 +74,16 @@ const AddToCart = (props) => {
       {/*	Check if its an external product then put its external buy link */}
       {"ExternalProduct" === product.nodeType ? (
         <a href={product.externalUrl} target="_blank">
-          <button className="btn btn-outline-dark">Buy Now</button>
+          <button className="btn-cart">Buy Now</button>
         </a>
       ) : (
-        <button onClick={handleAddToCartClick} className="btn btn-outline-dark">
+        <button onClick={handleAddToCartClick} className="btn-cart">
           Add to cart
         </button>
       )}
       {showViewCart ? (
         <Link to="/cart">
-          <button className="woo-next-view-cart-btn btn btn-outline-dark">
+          <button className="btn-cart">
             View Cart
           </button>
         </Link>

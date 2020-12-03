@@ -8,7 +8,7 @@ const Products = (props) => {
   const { products } = props;
   const [activePage, setActivePage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState(null);
-  const productsPerPage = 6;
+  const productsPerPage = 4;
   const pageRange = 10;
 
   /**
@@ -67,7 +67,7 @@ const Products = (props) => {
           <Product key={product.id} product={product} />
         ))}
       </div>
-      <Pagination
+      {/* <Pagination
         activePage={activePage}
         itemsCountPerPage={productsPerPage}
         totalItemsCount={products.length}
@@ -77,7 +77,7 @@ const Products = (props) => {
         linkClass={"page-link"}
         prevPageText={"Previous"}
         nextPageText={"Next"}
-      />
+      /> */}
     </div>
   );
 };

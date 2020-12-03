@@ -9,8 +9,7 @@ import classnames from 'classnames';
 
 import DropdownIcon from '../icons/dropdown-icon';
 import { normalizePath } from "../../utils/functions";
-import CartIcon from "../cart/cart-icon";
-import WishListIcon from "../wishlist/wishlist-icon";
+
 
 const Nav = ( props ) => {
 
@@ -133,19 +132,13 @@ const Nav = ( props ) => {
 									</li>
 								);
 							} ) }
-							<li className="header-nav__menu-item">
-								<Link className="header-nav__menu-link" to="/checkout">Checkout</Link>
-							</li>
+							
 						</ul>
 					) : null }
 
 				</div>
 			</nav>
-			<div className="cart-icon-wrap">
-				<WishListIcon/>
-				<CartIcon/>
-				{/*Burger menu*/}
-				<button
+			<button
 					className={ menuButtonClasses }
 					type="button"
 					onClick={ toggleMenu }
@@ -156,8 +149,8 @@ const Nav = ( props ) => {
 						<span className="screen-reader-text">Toogle Menu</span>
 					</span>
 				</span>
-				</button>
-			</div>
+			</button>
+			
 		</>
 	);
 };

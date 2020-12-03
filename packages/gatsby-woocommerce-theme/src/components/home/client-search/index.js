@@ -124,6 +124,12 @@ class ClientSearch extends Component {
 
     return (
       <>
+      <div className="container">
+      <div className="product-search">
+        <div className="product-heading">
+            <h2>Shop all products</h2>
+            <p>Quisque pretium dolor turpis, quis blandit turpis</p>
+        </div>
         <form className="search-form" onSubmit={this.handleSubmit}>
           <label htmlFor="Search" className="screen-reader-text">
             Enter your search here
@@ -138,7 +144,9 @@ class ClientSearch extends Component {
           />
           <SearchIcon/>
         </form>
-        <Categories categories={categories} category={category} />
+        </div>
+        </div>
+        {/* <Categories categories={categories} category={category} /> */}
         <SearchResults
           queryResults={queryResults}
           initialProducts={initialProducts}

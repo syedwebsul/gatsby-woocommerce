@@ -7,7 +7,7 @@ import "../../../images/search-background.png";
 const Search = (props) => {
   const { products, initialProducts, categories, category, engine } = props;
 
-  const placeholderText = "Search...";
+  const placeholderText = "Search food...";
 
   return !isEmpty(props.products) ? (
     <div className="search-section py-5">

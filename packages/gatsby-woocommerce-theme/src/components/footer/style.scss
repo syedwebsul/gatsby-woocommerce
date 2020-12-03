@@ -1,14 +1,12 @@
 @import "../../sass/essentials";
 
 .footer {
-  background-image: background_url("footer-background.png");
-  background-size: cover;
+  background: #0a0e15;
 
   .footer__top {
     color: $white;
-    padding-top: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-top: 90px;
+    padding-bottom: 80px;
   }
 
   .widget-title {
@@ -45,7 +43,7 @@
 .footer__sidebar-one,
 .footer__sidebar-two,
 .footer-menu-items {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .footer-menu-items {
@@ -66,9 +64,10 @@
 
 	  a {
 		  position: relative;
-		  color: #ccc;
+		  color: #fff;
+		  font-size: 13px;
 		  &:visited {
-			  color: #ccc;
+			  color: #fff;
 		  }
 
 		  &:after {
@@ -84,16 +83,6 @@
 			  transition: transform 0.3s;
 		  }
 
-		  &:hover {
-
-			  opacity: 0.5;
-			  color: $white;
-
-			  &:after {
-				  transform-origin: bottom left;
-				  transform: scaleX(1);
-			  }
-		  }
 	  }
   }
 }
@@ -138,7 +127,7 @@
 
 .footer {
   a {
-    color: #ccc;
+    color: #fff;
   }
 }
 
