@@ -29,7 +29,7 @@ const ArchivePage = ( props ) => {
 							header={ { siteTitle: 'Gatsby WooCommerce Theme' } }
 							openGraphImage={ getOgImage( seo ) }
 						/>
-						<Carousel categories={ categories }/>
+						{/* <Carousel categories={ categories }/> */}
 						<Search
 							products={ products }
 							initialProducts={ category.products.nodes }

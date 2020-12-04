@@ -14,11 +14,11 @@ import user from "../../images/user-outline.png";
 const Header = ({ data }) => {
   const {
     wp: {
-      header: { siteTitle, siteTagLine, siteLogoUrl },
+      header: { siteLogoUrl },
     },
     headerMenuItems,
   } = data;
-  const siteLogoURL = siteLogoUrl ? siteLogoUrl : defaultSiteLogoUrl;
+ // const siteLogoURL = siteLogoUrl ? siteLogoUrl : defaultSiteLogoUrl;
 
 
   

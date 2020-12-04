@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import AddToCartButton from "../cart/add-to-cart-button";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -6,12 +6,13 @@ import { isEmpty } from "lodash";
 import SocialShareCard from "../social-share-card";
 import ProductCarousel from "../product-carousel";
 import { sanitize } from "../../utils/functions";
-
+import WishListIcon from "../wishlist/wishlist-icon";
+import RelatedProducts from "../relatedproduct";
 const productImagePlaceholder = "https://via.placeholder.com/434";
 
 const SingleProduct = ( props ) => {
 	const { product } = props;
-
+	const [count, setCount] = useState(1);
 	const hasImagesSizes =
 		      !isEmpty( product.image ) && !isEmpty( product.image.mediaDetails.sizes );
 	const imgSrcUrl      = hasImagesSizes
@@ -51,27 +52,46 @@ const SingleProduct = ( props ) => {
 	return (
 		// @TODO Need to handle Group products differently.
 		!isEmpty( product ) && "GroupProduct" !== product.nodeType ? (
-			<div className="single-product-page container py-5">
+			<div className="single-product-page">
+				<div className="container">
 				<div className="row">
 					<div className="col-lg-5 col-md-6 mb-5 product-image-wrap">
 						<div className="product-image">
 							{ displayProductImages() }
 						</div>
+						<SocialShareCard title={ product.name } sectionTitle="Share this product"
+							                 link={ product.uri }/>
 					</div>
 					<div className="col-lg-7 col-md-6 mb-5">
 						<div className="single-product-desc">
 							<h3>{ product.name ? product.name : "" }</h3>
+							<h6 className="card-subtitle mb-3">{ product.price }</h6>
+
 							{ !isEmpty( product.description ) ? (
 								<p dangerouslySetInnerHTML={ { __html: sanitize( product.description ) } }/>
 							) : null }
 							<div className="single-product-add-to-cart">
-								<h6 className="card-subtitle mb-3">{ product.price }</h6>
+								
+								<div className="increament-input">
+									<button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
+									<input type="number" value={count} />
+									<button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
+								</div>
+
 								<AddToCartButton product={ product }/>
+
+								<WishListIcon/>
+
 							</div>
-							<SocialShareCard title={ product.name } sectionTitle="Share this product"
-							                 link={ product.uri }/>
+							
 						</div>
 					</div>
+					</div>
+
+
+					<RelatedProducts />		
+					
+
 				</div>
 			</div>
 		) : null
