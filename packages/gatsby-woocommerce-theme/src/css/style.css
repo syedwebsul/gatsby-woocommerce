@@ -725,3 +725,81 @@ body{
     margin: 0;
     padding-bottom: 40px;
 }
+
+
+
+/********* Product Option ***********/
+
+
+.option-include h2 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+}
+
+.option-include li {
+    font-size: 16px;
+    line-height: 30px;
+    color: #393b40;
+    font-weight: 700;
+}
+
+.option-include li span {
+    font-weight: 400;
+}
+
+.option-include ul {
+    list-style-type: disc;
+    padding-left: 18px;
+}
+
+.option-include {
+    padding: 10px 0px;
+}
+
+.select-option h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.0555556px;
+    color: #0A0E15;
+}
+
+.select-option {
+    border: 1px solid #D4D5D7;
+    padding: 24px;
+    border-radius: 4px;
+}
+
+.select-option {
+    margin-top: 14px;
+}
+
+.select-option form{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.select-option label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+}
+
+
+.select-option .form-group {
+    width: 49%;
+    margin-bottom: 15px;
+}
+
+.select-option select {
+    padding: 10px;
+    height: auto;
+    border: 1px solid #ddd;
+}

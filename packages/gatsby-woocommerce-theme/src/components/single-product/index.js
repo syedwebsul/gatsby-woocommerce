@@ -8,6 +8,8 @@ import ProductCarousel from "../product-carousel";
 import { sanitize } from "../../utils/functions";
 import WishListIcon from "../wishlist/wishlist-icon";
 import RelatedProducts from "../relatedproduct";
+import ProductOption from "../productoption";
+
 const productImagePlaceholder = "https://via.placeholder.com/434";
 
 const SingleProduct = ( props ) => {
@@ -70,6 +72,11 @@ const SingleProduct = ( props ) => {
 							{ !isEmpty( product.description ) ? (
 								<p dangerouslySetInnerHTML={ { __html: sanitize( product.description ) } }/>
 							) : null }
+
+
+
+							<ProductOption />
+
 							<div className="single-product-add-to-cart">
 								
 								<div className="increament-input">
