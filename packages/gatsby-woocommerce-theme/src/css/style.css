@@ -1305,3 +1305,785 @@ body{
     border: none;
     margin-top: 10px;
 }
+
+
+/************* My Account ***************/
+
+
+.my-account-header{
+    background: url("../images/bg-account.png");
+    padding: 80px 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.user-info h3 {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 42px;
+    color: #FFFFFF;
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+.user-info h5 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+.user-info p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+    max-width: 550px;
+    margin: 0;
+}
+
+.my-account-header .row {
+    align-items: center;
+}
+
+.my-account-content {
+    background: #fafafa;
+    padding: 70px 0px;
+}
+
+.rwt__tablist {
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: none!important;
+    width: 285px;
+}
+
+.rwt__tablist button {
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.rwt__tablist[aria-orientation="vertical"] .rwt__tab[aria-selected="true"]:after {
+    border: none!important;
+    right: inherit!important;
+}
+
+.rwt__tablist[aria-orientation="vertical"] .rwt__tab[aria-selected="true"] {
+    color: #DB232E!important;
+}
+
+.rwt__tab {
+    display: flex;
+    align-items: center;
+}
+
+.rwt__tab img {
+    margin-right: 20px;
+}
+
+.rwt__tablist {
+    padding: 30px 0px;
+    margin-right: 30px!important;
+}
+
+.rwt__tab {
+    background: #fff!important;
+}
+
+
+.rwt__tabpanel {
+    width: 100%;
+}
+
+
+/********* Dashboard ************/
+
+.dashboard h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.latest-order{
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+
+.latest-order h3 {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #2A2D36;
+}
+
+.latet-order-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 0px;
+}
+
+.latest-order-detail {
+    display: flex;
+}
+
+.latest-order-info {
+    padding-left: 20px;
+}
+
+.latest-order-info h4 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+    margin: 0;
+}
+
+.latest-order-info span {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2A2D36;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    display: block;
+}
+
+.latest-order-info a {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2A2D36;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.latest-order-detail img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.latest-order-price h5 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    letter-spacing: -0.0555556px;
+    color: #0A0E15;
+}
+
+.view-all-order {
+    background: #DB232E;
+    border: 1px solid #DB232E;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: block;
+    text-align: center;
+    padding: 6px 12px;
+    color: #fff!important;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+.view-all-order:hover, .view-all-order:focus{
+    color: #fff!important;
+    background: #DB232E;
+    border: 1px solid #DB232E;
+}
+
+.address-account {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.address-account span {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #2A2D36;
+    padding-bottom: 22px;
+    display: block;
+}
+
+.address-account h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.0555556px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.address-account h4 {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+.address-account p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    max-width: 245px;
+    margin: 0;
+}
+
+.addtess-btn {
+    background: #DB232E;
+    border: 1px solid #DB232E;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: auto;
+    max-width: 186px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+
+
+.payment-method {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.payment-method span {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #2A2D36;
+    padding-bottom: 22px;
+    display: block;
+}
+
+.payment-method h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.0555556px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 5px;
+    padding-top: 25px;
+}
+
+.payment-method p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    margin: 0;
+}
+
+.payment-method img {
+    max-width: 50px;
+}
+
+.payment-btn {
+    background: #DB232E;
+    border: 1px solid #DB232E;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: auto;
+    max-width: 186px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 30px;
+}
+
+/********* order ************/
+
+.my-orders h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.my-orders p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid#F3F3F3;
+}
+
+.my-orders .cart-table {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.my-orders .cart-table thead th:first-child {
+    width: auto;
+}
+
+.my-orders .cart-table table tr td {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #2A2D36;
+}
+
+.my-orders .cart-table thead th {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #FFFFFF;
+}
+
+.view-order-btn {
+    background: #DB232E;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    max-width: 112px;
+    width: 100%;
+    display: inline-block;
+    padding: 4px 0px;
+}
+
+.my-orders .cart-table table tr td:first-child {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    color: #DB232E;
+}
+
+.my-orders .cart-table table tr td.order-price {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 21px;
+    color: #2A2D36;
+}
+
+.my-orders .cart-table table tr td.order-price span {
+    font-size: 14px;
+    line-height: 21px;
+    color: #2A2D36;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.my-orders .cart-table table tr td.processing span {
+    background:#EEF2FE;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color:#1C51EA;
+    min-width: 102px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+
+.my-orders .cart-table table tr td.cancelled span {
+    background: #FFF3F4;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #DB232E;
+    min-width: 102px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+
+.my-orders .cart-table table tr td.completed span {
+    background:#E9F9FB;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #78E4A7;
+    min-width: 102px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+.my-orders .cart-table table tr td.hold span {
+    background: #FEF8EE;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #DBB223;
+    min-width: 102px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 0px;
+}
+
+
+
+/********* Track Order ************/
+
+.track-orders h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.track-orders p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid#F3F3F3;
+}
+
+.track-content{
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+
+.track-content label {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+}
+
+.track-content .form-control {
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 10px 15px;
+    height: auto;
+    margin-top: 5px;
+}
+
+
+
+
+/********* Payment Method ************/
+
+.payment-method-header{
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid#F3F3F3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-title h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.payment-title p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    margin-bottom: 0px;
+
+}
+
+.payment-title {
+    padding-right: 20px;
+}
+
+.add-payment-btn {
+    background: #DB232E;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF!important;
+    padding: 7px 10px;
+    display: inline-block;
+    max-width: 250px;
+    width: 100%;
+}
+
+
+.payment-method-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.payment-method-content .payment-method {
+    width: 49%;
+    margin-bottom: 20px;
+}
+
+.payment-method-content .payment-btn{
+    margin-top: 20px;
+}
+
+.delete-payment-btn {
+    border: 1px solid #DB232E;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: auto;
+    max-width: 186px;
+    color: #DB232E;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+/********* Address ************/
+
+.account-address-header{
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid#F3F3F3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.address-title h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.address-title p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    margin-bottom: 0px;
+
+}
+
+.address-title {
+    padding-right: 20px;
+}
+
+.add-address-btn {
+    background: #DB232E;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF!important;
+    padding: 7px 10px;
+    display: inline-block;
+    max-width: 250px;
+    width: 100%;
+}
+
+
+.account-tab .rwt__tablist {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    border-bottom: 1px solid #F3F3F3!important;
+    padding-bottom: 0;
+    padding-top: 0px;
+    margin-bottom: 25px;
+}
+
+.account-tab .rwt__tablist .rwt__tab {
+    background: transparent!important;
+    padding: 10px 0px;
+    margin-right: 40px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+    opacity: 0.5;
+}
+
+.account-tab .rwt__tablist:not([aria-orientation="vertical"]) .rwt__tab[aria-selected="true"]:after {
+    border-bottom: 2px solid #db232e;
+}
+
+.account-tab .rwt__tablist .rwt__tab[aria-selected="true"] {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.0444444px;
+    color: #DB232E;
+    opacity: 1;
+}
+
+.delete-address-btn {
+    border: 1px solid #DB232E;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px 10px;
+    height: auto;
+    max-width: 186px;
+    color: #DB232E;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.account-tab .addtess-btn{
+    margin-top: 20px;  
+}
+
+.billing-address {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.billing-address .address-account {
+    width: 49%;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+/********* Account details ************/
+
+.account-page h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.account-page p {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2D36;
+    margin-bottom: 20px;
+}
+
+
+.account-form {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.account-form form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.account-form form .form-group {
+    width: 49%;
+}
+
+.account-form form .form-group.full-w {
+    width: 100%;
+}
+
+
+.account-form form .form-group label {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    color: #0A0E15;
+}
+
+.account-form form .form-group .form-control {
+    background: #FFFFFF;
+    border: 1px solid #F3F3F3;
+    box-sizing: border-box;
+    border-radius: 3px;
+    height: auto;
+    padding: 10px 15px;
+}
+
+.save-changes {
+    background: #DB232E;
+    border: 1px solid #DB232E;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 6px 20px;
+    color: #fff!important;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}

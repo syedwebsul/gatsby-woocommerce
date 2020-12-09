@@ -26,15 +26,19 @@ const MyAccount = () => {
   return (
     <Layout>
       {!loggedIn ? (
-        <div className="container py-5">
-          <div className="row">
-            <Login setLoggedIn={setLoggedIn} />
-            <Register setLoggedIn={setLoggedIn} />
-          </div>
+        <div className="my-account-page">
+            <CustomerAccount handleLogout={handleLogout} />
         </div>
       ) : (
-        <div className="account-details container py-5">
-          <CustomerAccount handleLogout={handleLogout} />
+        <div className="account-details">
+          <div className="container">
+            <div className="row">
+                 <div className="col-md-12">
+                    <Login setLoggedIn={setLoggedIn} />
+                    <Register setLoggedIn={setLoggedIn} />
+                  </div>
+              </div>
+            </div>
         </div>
       )}
     </Layout>

@@ -57,6 +57,7 @@
     "react-medium-image-zoom": "^4.3.1",
     "react-responsive": "^8.1.0",
     "react-slick": "^0.27.10",
+    "react-web-tabs": "^1.0.1",
     "sass-mq": "^5.0.1",
     "slick-carousel": "^1.8.1",
     "uuid": "^8.3.0",
@@ -79,8 +80,8 @@
   ],
   "homepage": "https://github.com/imranhsayed/gatsby-woocommerce-themes#readme",
   "repository": {
-	"type": "git",
-	"url": "git+https://github.com/imranhsayed/gatsby-woocommerce-themes.git"
+    "type": "git",
+    "url": "git+https://github.com/imranhsayed/gatsby-woocommerce-themes.git"
   },
   "bugs": {
     "url": "https://github.com/imranhsayed/gatsby-woocommerce-themes/issues"
