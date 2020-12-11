@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './style.scss';
 import CartDropDown from "../cart-dropdown";
 import { AppContext } from "../../context/AppContext";
-import carticon from "../../../images/cart-outline.png";
+import carticon from "../../../images/cart-outline.svg";
 
 const CartIcon = () => {
 

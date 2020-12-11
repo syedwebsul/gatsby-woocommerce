@@ -6,10 +6,10 @@ import Link from "gatsby-link";
  */
 import Nav from "./nav";
 import "./style.scss";
-import defaultSiteLogoUrl from "../../images/home-sergio-logo.png";
+import defaultSiteLogoUrl from "../../images/sergio-logo-default.svg";
 import CartIcon from "../cart/cart-icon";
 import WishListIcon from "../wishlist/wishlist-icon";
-import user from "../../images/user-outline.png";
+import user from "../../images/user-outline.svg";
 
 const Header = ({ data }) => {
   const {
