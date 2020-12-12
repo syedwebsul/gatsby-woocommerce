@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import oval from "../../../images/plan-oval.png";
 import food from "../../../images/plan-food.png";
+import planbgmbl from "../../../images/planbg-mbl.png";
 
 const HomePlan = () => {
 
@@ -9,7 +10,8 @@ const HomePlan = () => {
   return (
     <div className="plan-home">
         <div className="convenient">
-              <div className="plan-box">
+            <img className="planbgmbl" src={planbgmbl} alt="" />
+              <div className="plan-box">                
                 <div className="plan-heading">Convenient and Delicious delivered to your door</div>
                 <div className="plan-text ">
                   Quisque pretium dolor turpis, quis blandit turpis semper ut. Nam malesuada eros nec luctus laoreet.

@@ -11,13 +11,21 @@ const HomeBanner = () => {
     <div className="home-banner">
       
         <div className="banner-bg">
-            <img className="left-graphic" src={leftimg} alt="" />
+
+            <div className="left-graphic">
+              <img src={leftimg} alt="" />
+            </div>
+           
 
             <div className="banner-content">
                 <h2>Get everything Sergio’s all in one marketplace</h2>
                 <a href="">Get Started</a>
             </div>
-            <img className="right-graphic" src={rightimg} alt="" />
+
+            <div className="right-graphic">
+                <img src={rightimg} alt="" />
+            </div>
+            
             <img className="right-graphic-mbl" src={rightimgmbl} alt="" />
         </div>   
      
