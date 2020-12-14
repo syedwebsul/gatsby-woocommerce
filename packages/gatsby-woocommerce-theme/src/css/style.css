@@ -2780,6 +2780,205 @@ body{
 }
 
 
+
+/************ Cart ************/
+
+
+.cart-sidebar {
+    margin-top: 33px;
+}
+
+.checkout-btn {
+    max-width: 100%;
+}
+
+.cart-table thead {
+    display: none;
+}
+
+.close-btn{
+    display: none;
+}
+
+.cart-product {
+    padding-left: 0;
+}
+
+.cart-product-img {
+    width: 48px;
+    height: 48px;
+}
+
+.cart-product-img img {
+    width: 48px;
+    height: 48px;
+}
+
+.cart-product-detail h4 {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.cart-page h2 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.cart-page {
+    padding-top: 24px;
+}
+
+.apply-coupon .subscribe-form {
+    margin: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.apply-coupon .subscribe-form button {
+    background: #DB232E;
+    max-width: 118px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 10px;
+    text-align: center;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    margin: 0;
+}
+
+.apply-coupon .subscribe-form .form-control {
+    text-align: left;
+    padding-right: 130px;
+}
+
+.apply-coupon {
+    background: #fafafa;
+    padding: 0;
+    padding-top: 24px;
+}
+
+.cart-table .increament-input {
+    margin: 0;
+}
+
+.cart-product-detail {
+    padding-left: 10px;
+}
+
+.checkout-sidebar .payment-method {
+    padding: 0;
+}
+
+.place-order{
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+.checkout-page {
+    padding-top: 24px;
+    padding-bottom: 50px;
+}
+
+.checkout-page h2 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.checkout-form {
+    padding: 24px 16px;
+}
+
+.checkout-form .form-group {
+    width: 100%;
+}
+.checkout-form .form-group.half-w {
+    width: 100%;
+}
+
+.checkout-sidebar {
+    margin-top: 24px;
+}
+
+
+/*********** Product detail **********/
+
+
+.social-share {
+    display: none;
+}
+
+.single-product-desc h3 {
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.single-product-desc .card-subtitle {
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.carousel-img-wrap div {
+    width: 100%;
+}
+
+.slick-track {
+    display: flex;
+}
+
+.select-option {
+    background: #F3F3F3;
+    border-color: transparent;
+}
+
+.select-option .form-group {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+.single-product-add-to-cart .increament-input {
+    margin: 0;
+}
+
+.single-product-add-to-cart {
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.increament-input + div {
+    margin-top: 20px;
+}
+
+.single-product-add-to-cart .wishlist-menu {
+    display: block;
+}
+
+
+.single-product-add-to-cart .increament-input::before {content: "Quantity";position: absolute;left: -100px;font-weight: 700;top: 5px;}
+
+.single-product-add-to-cart .increament-input {
+    margin-left: 100px;
+}
+
+.single-product-desc .btn-cart {
+    min-width: 164px;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 9px 5px;
+}
+
+.increament-input input {
+    padding: 5px 35px;
+    max-width: 104px;
+}
+
+.increament-btn, .decriment-btn {
+    padding: 3px 5px;
+    font-size: 12px;
+}
+
 }
 
 
