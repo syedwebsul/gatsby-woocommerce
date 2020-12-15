@@ -237,6 +237,7 @@ body{
     right: -50px;
     top: 0;
     width: 33%;
+    text-align: right;
 }
 
 .right-graphic-mbl{
@@ -725,8 +726,18 @@ body{
 }
 
 
+.carousel-img-wrap div {
+    width: 100%;
+}
+
+.slick-track {
+    display: flex;
+}
 
 
+.cart-item-mbl {
+    display: none;
+}
 
 
 /********8/ Related Products *8**********/
@@ -2948,11 +2959,12 @@ body{
 }
 
 .increament-input + div {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .single-product-add-to-cart .wishlist-menu {
     display: block;
+    top: 20px;
 }
 
 
@@ -2979,14 +2991,116 @@ body{
     font-size: 12px;
 }
 
+.related-products h2 {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+.cart-table {
+    display: none;
+}
+
+.cart-item-mbl {
+    display: block;
+}
+
+.cart-item-content {
+    background: #fafafa;
+
+}
+.cart-item-list-mobile {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cart-item-img {
+    width: 48px;
+}
+
+.cart-item-img img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.cart-info-mbl {
+    width: calc(100% - 48px);
+    padding-left: 15px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #F3F3F3;
+}
+
+.cart-item-mbl .cart-item-list-mobile:last-child .cart-info-mbl {
+    border-bottom: none;
+}
+
+.cart-info-mbl h4 {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.cart-info-mbl p {
+    font-size: 12px;
+    line-height: 18px;
+    color: #2A2D36;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+}
+
+.cart-mbl-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-page .cart-mbl-footer h2 {
+    font-size: 18px;
+    line-height: 22px;
+    color: #0A0E15;
+    margin: 0;
+    padding: 0;
+}
+
+.mbl-cart-heading{
+    width: 100%;
+}
+
+.mbl-cart-heading h2{
+    font-size: 18px;
+    line-height: 22px;
+    color: #0A0E15;
+    margin: 0;
+    padding-bottom: 12px;
+}
+
+.cart-item-mbl-content{
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+}
+
 }
 
 
 
 
 @media screen and (max-width:480px){
-    .product-container.row .col-lg-3.col-md-6.mb-5 {
+    .product-container.row {
+        white-space: nowrap;
+        overflow-x: auto;
+        display: block;
         width: 100%;
+    }
+    .product-container.row .col-lg-3.col-md-6.mb-5 {
+        width: 260px;
         margin: 0!important;
+        display: inline-block;
+        vertical-align: top;
     }
 }

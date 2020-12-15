@@ -276,6 +276,72 @@ const CartItemsContainer = () => {
                       </div>
 
 
+
+
+                      <div className="cart-item-mbl">
+
+                       <div className="mbl-cart-heading"><h2>Items</h2></div>
+
+                       <div className="cart-item-mbl-content">
+
+                        <div className="cart-item-list-mobile">
+                            <div className="cart-item-img">
+                                <img src={cartproduct1} alt="" />
+                            </div>
+                            <div className="cart-info-mbl">
+                                <h4>Guava Pastry - 15 Pack</h4>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <div className="cart-mbl-footer">
+                                    <h2>$25</h2>
+                                    <div className="increament-input">
+                                      <button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
+                                      <input type="number" value={count} />
+                                      <button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="cart-item-list-mobile">
+                            <div className="cart-item-img">
+                                <img src={cartproduct1} alt="" />
+                            </div>
+                            <div className="cart-info-mbl">
+                                <h4>Guava Pastry - 15 Pack</h4>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <div className="cart-mbl-footer">
+                                    <h2>$25</h2>
+                                    <div className="increament-input">
+                                      <button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
+                                      <input type="number" value={count} />
+                                      <button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="cart-item-list-mobile">
+                            <div className="cart-item-img">
+                                <img src={cartproduct1} alt="" />
+                            </div>
+                            <div className="cart-info-mbl">
+                                <h4>Guava Pastry - 15 Pack</h4>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                <div className="cart-mbl-footer">
+                                    <h2>$25</h2>
+                                    <div className="increament-input">
+                                      <button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
+                                      <input type="number" value={count} />
+                                      <button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                      </div>
+
+
                       <div className="apply-coupon">
                           <div className="subscribe-form">
                               <input type="email" className="form-control"  placeholder="Enter coupon code" />
