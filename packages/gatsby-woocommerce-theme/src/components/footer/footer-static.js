@@ -18,7 +18,7 @@ import React from "react";
 const Footer = ( { data } ) => {
 	const {
 		      wp: {
-			      footer: { sidebarOne, sidebarTwo },
+			      footer: { sidebarOne },
 		      },
 		      footerMenuItems,
 	      } = data;

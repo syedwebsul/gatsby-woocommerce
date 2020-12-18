@@ -23,7 +23,6 @@ export default ( props ) => {
 				    query HeaderQuery {
 					  wp {
 					    header: getHeader {
-					      siteLogoUrl
 					      siteTagLine
 					      siteTitle
 					      favicon

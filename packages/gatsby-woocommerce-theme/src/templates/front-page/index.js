@@ -30,13 +30,13 @@ const FrontPage = ( props ) => {
 				! isEmpty( props.pageContext ) ? (
 					<>
 					    
-						<SEO
+						{/* <SEO
 							title={ title }
 							seoData={ seo }
 							uri={ uri }
 							header={ { siteTitle: 'Sergio Marketplace' } }
 							openGraphImage={ getOgImage( seo ) }
-						/>
+						/> */}
 						{/* <Carousel categories={ categories }/> */}
 					
 						<HomeBanner />

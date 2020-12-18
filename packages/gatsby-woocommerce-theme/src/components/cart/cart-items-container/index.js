@@ -108,102 +108,104 @@ const CartItemsContainer = () => {
 
 
   return (
-    // <div className="content-wrap-cart">
-    //   {cart ? (
-    //     <div className="container woo-next-cart-wrapper">
-    //       <h1 className="mt-5 woo-next-cart-heading">Cart</h1>
-    //       <div className="woo-next-cart-table-row row">
-    //         <div className="woo-next-cart-table col-md-8 mb-md-0 mb-5">
-	  //           {cart.products.length &&
-	  //           cart.products.map((item) => (
-		//             <CartItem
-		// 	            key={item.productId}
-		// 	            item={item}
-		// 	            updateCartProcessing={updateCartProcessing}
-		// 	            products={cart.products}
-		// 	            handleRemoveProductClick={handleRemoveProductClick}
-		// 	            updateCart={updateCart}
-		//             />
-	  //           ))}
+    <>
+    {/* <div className="content-wrap-cart">
+      {cart ? (
+        <div className="container woo-next-cart-wrapper">
+          <h1 className="mt-5 woo-next-cart-heading">Cart</h1>
+          <div className="woo-next-cart-table-row row">
+            <div className="woo-next-cart-table col-md-8 mb-md-0 mb-5">
+	            {cart.products.length &&
+	            cart.products.map((item) => (
+		            <CartItem
+			            key={item.productId}
+			            item={item}
+			            updateCartProcessing={updateCartProcessing}
+			            products={cart.products}
+			            handleRemoveProductClick={handleRemoveProductClick}
+			            updateCart={updateCart}
+		            />
+	            ))}
 
-    //           {/*Clear entire cart*/}
-    //           <div className="clear-cart">
-    //             <button
-    //               className="btn btn-light "
-    //               onClick={(event) => handleClearCart(event)}
-    //               disabled={clearCartProcessing}
-    //             >
-    //               <span className="woo-next-cart">Clear Cart</span>
-    //               <i className="fa fa-arrow-alt-right" />
-    //             </button>
-    //             {clearCartProcessing ? <p>Clearing...</p> : ""}
-    //           </div>
-    //         </div>
+          
+              <div className="clear-cart">
+                <button
+                  className="btn btn-light "
+                  onClick={(event) => handleClearCart(event)}
+                  disabled={clearCartProcessing}
+                >
+                  <span className="woo-next-cart">Clear Cart</span>
+                  <i className="fa fa-arrow-alt-right" />
+                </button>
+                {clearCartProcessing ? <p>Clearing...</p> : ""}
+              </div>
+            </div>
 
-    //         {/* Display Errors if any */}
-    //         {requestError ? (
-    //           <div className="mt-5 row woo-next-cart-total-container">
-    //             {" "}
-    //             {requestError}{" "}
-    //           </div>
-    //         ) : (
-    //           ""
-    //         )}
+         
+            {requestError ? (
+              <div className="mt-5 row woo-next-cart-total-container">
+                {" "}
+                {requestError}{" "}
+              </div>
+            ) : (
+              ""
+            )}
 
-    //         {/*Cart Total*/}
-    //         <div className="woo-next-cart-total-container col-md-4">
-    //           <h2>Cart Total</h2>
-    //           <table className="table table-hover">
-    //             <tbody>
-    //               <tr className="table-light">
-    //                 <td className="woo-next-cart-element-total">Subtotal</td>
-    //                 <td className="woo-next-cart-element-amt">
-    //                   {"string" !== typeof cart.totalProductsPrice
-    //                     ? cart.totalProductsPrice.toFixed(2)
-    //                     : cart.totalProductsPrice}
-    //                 </td>
-    //               </tr>
-    //               <tr className="table-light">
-    //                 <td className="woo-next-cart-element-total">Total</td>
-    //                 <td className="woo-next-cart-element-amt">
-    //                   {"string" !== typeof cart.totalProductsPrice
-    //                     ? cart.totalProductsPrice.toFixed(2)
-    //                     : cart.totalProductsPrice}
-    //                 </td>
-    //               </tr>
-    //             </tbody>
-    //           </table>
-    //           <Link to="/checkout">
-    //             <button className="btn btn-dark woo-next-large-black-btn">
-    //               <span className="woo-next-cart-checkout-txt">
-    //                 Proceed to Checkout
-    //               </span>
-    //               <i className="fas fa-long-arrow-alt-right" />
-    //             </button>
-    //           </Link>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   ) : (
-    //     <div className="container mt-5">
-    //       <h2>No items in the cart</h2>
-    //       <Link to="/">
-    //         <button className="btn btn-secondary woo-next-large-black-btn">
-    //           <span className="woo-next-cart-checkout-txt">
-    //             Add New Products
-    //           </span>
-    //           <i className="fas fa-long-arrow-alt-right" />
-    //         </button>
-    //       </Link>
-    //     </div>
-    //   )}
-    // </div>
+           
+            <div className="woo-next-cart-total-container col-md-4">
+              <h2>Cart Total</h2>
+              <table className="table table-hover">
+                <tbody>
+                  <tr className="table-light">
+                    <td className="woo-next-cart-element-total">Subtotal</td>
+                    <td className="woo-next-cart-element-amt">
+                      {"string" !== typeof cart.totalProductsPrice
+                        ? cart.totalProductsPrice.toFixed(2)
+                        : cart.totalProductsPrice}
+                    </td>
+                  </tr>
+                  <tr className="table-light">
+                    <td className="woo-next-cart-element-total">Total</td>
+                    <td className="woo-next-cart-element-amt">
+                      {"string" !== typeof cart.totalProductsPrice
+                        ? cart.totalProductsPrice.toFixed(2)
+                        : cart.totalProductsPrice}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Link to="/checkout">
+                <button className="btn btn-dark woo-next-large-black-btn">
+                  <span className="woo-next-cart-checkout-txt">
+                    Proceed to Checkout
+                  </span>
+                  <i className="fas fa-long-arrow-alt-right" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="container mt-5">
+          <h2>No items in the cart</h2>
+          <Link to="/">
+            <button className="btn btn-secondary woo-next-large-black-btn">
+              <span className="woo-next-cart-checkout-txt">
+                Add New Products
+              </span>
+              <i className="fas fa-long-arrow-alt-right" />
+            </button>
+          </Link>
+        </div>
+      )}
+    </div> */}
 
 
     <div className="cart-page">
 
         <div className="container">
 
+        {cart ? (
           <div className="row">
 
             <div className="col-md-12">
@@ -224,53 +226,19 @@ const CartItemsContainer = () => {
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>
-                                  <div className="cart-product">
-                                   <button className="close-btn"><img src={cartclose} alt="" /></button>
-                                    <div className="cart-product-img">
-                                      <img src={cartproduct1} alt="" />
-                                    </div>
-                                    <div className="cart-product-detail">
-                                      <h4>Guava Pastry - 15 Pack</h4>
-                                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td>
-                                <div className="increament-input">
-                                  <button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
-                                  <input type="number" value={count} />
-                                  <button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
-                                </div>
-                                </td>
-                                <td>$20.00</td>
-                                <td>$40.00</td>
-                              </tr>
+                            {cart.products.length &&
+                              cart.products.map((item) => (
+                                <CartItem
+                                  key={item.productId}
+                                  item={item}
+                                  updateCartProcessing={updateCartProcessing}
+                                  products={cart.products}
+                                  handleRemoveProductClick={handleRemoveProductClick}
+                                  updateCart={updateCart}
+                                />
+                              ))}
 
-                              <tr>
-                                <td>
-                                  <div className="cart-product">
-                                    <button className="close-btn"><img src={cartclose} alt="" /></button>
-                                    <div className="cart-product-img">
-                                      <img src={cartproduct2} alt="" />
-                                    </div>
-                                    <div className="cart-product-detail">
-                                      <h4>Guava Pastry - 15 Pack</h4>
-                                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                  </div>
-                                </td>
-                                <td>
-                                <div className="increament-input">
-                                  <button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
-                                  <input type="number" value={count} />
-                                  <button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
-                                </div>
-                                </td>
-                                <td>$20.00</td>
-                                <td>$40.00</td>
-                              </tr>
+                              
                             </tbody>
                           </table>
                       </div>
@@ -351,6 +319,12 @@ const CartItemsContainer = () => {
                   </div>
               </div>
 
+
+
+             
+
+
+
               <div className="col-md-3">
 
                 <div className="cart-sidebar">
@@ -358,22 +332,57 @@ const CartItemsContainer = () => {
                   <h3>Cart Total</h3>
                   <div className="cart-total">
                       <ul>
-                        <li><span>Subtotal</span> $80.00</li>
+                        <li><span>Subtotal</span> {"string" !== typeof cart.totalProductsPrice
+                        ? cart.totalProductsPrice.toFixed(2)
+                        : cart.totalProductsPrice}</li>
                         <li><span>Shippings</span> FREE SHIPPING</li>
-                        <li><span>Total</span> <strong>$80.00</strong></li>
+                        <li><span>Total</span> <strong>{"string" !== typeof cart.totalProductsPrice
+                        ? cart.totalProductsPrice.toFixed(2)
+                        : cart.totalProductsPrice}</strong></li>
                       </ul>
                   </div>
 
-                  <button className="checkout-btn">Checkout</button>
+                  <Link to="/checkout" className="checkout-btn">Checkout</Link>
 
                 </div>
 
               </div>
 
+
+
+            <div className="col-md-12">
+              {requestError ? (
+                  <div className="woo-next-cart-total-container">
+                    {" "}
+                    {requestError}{" "}
+                  </div>
+                ) : (
+                  ""
+                )}
+            </div>
+
+            
           </div>
+
+
+
+
+          )  : (
+
+            <div className="row">
+              <div className="col-md-12">
+                <div className="no-item-cart">
+                  <h2>No items in the cart</h2>
+                  <Link to="/">Add New Products</Link>
+                </div>
+              </div>
+            </div>
+          )}
+
         </div>
 
     </div>
+    </>
   );
 };
 

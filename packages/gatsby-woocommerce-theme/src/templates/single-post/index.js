@@ -14,13 +14,13 @@ const SinglePostTemplate = ( props ) => {
 			{
 				!isEmpty( props.pageContext ) ? (
 					<>
-						<SEO
+						{/* <SEO
 							title={ title }
 							seoData={ seo }
 							uri={ uri }
 							header={ { siteTitle: 'Gatsby WooCommerce Theme' } }
 							openGraphImage={ getOgImage( seo ) }
-						/>
+						/> */}
 						<SinglePost data={ props.pageContext }/>
 					</>
 				) : (

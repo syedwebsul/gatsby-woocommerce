@@ -13,9 +13,6 @@ import user from "../../images/user-outline.svg";
 
 const Header = ({ data }) => {
   const {
-    wp: {
-      header: { siteLogoUrl },
-    },
     headerMenuItems,
   } = data;
  // const siteLogoURL = siteLogoUrl ? siteLogoUrl : defaultSiteLogoUrl;

@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import cartSpinnerGif from '../../../images/cart-spinner.gif';
 import './style.scss';
 import isEmpty from "validator/es/lib/isEmpty";
-
+import cartclose from "../../../images/close.png";
 const CartItem = ( {
 	                   item,
 	                   products,
@@ -64,47 +64,43 @@ const CartItem = ( {
 	};
 
 	return (
-		<div className="row cart-items-wrap">
-			<div className="col-md-3 cart-left-col">
-				<figure>
+		<tr>
+			<td>
+				<div className="cart-product">
+				<button onClick={ ( event ) => handleRemoveProductClick( event, item.cartKey, products ) } className="close-btn"><img src={cartclose} alt="" /></button>
+				<div className="cart-product-img">
 					<LazyLoadImage
 						alt={item.image.title}
 						src={! isEmpty( item.image.sourceUrl ) ? item.image.sourceUrl : ''} // use normal <img> attributes as props
 						effect="blur"
 					/>
-				</figure>
-			</div>
-
-			<div className="col-md-9 cart-right-col">
-				<div className="cart-product-title-wrap">
-					<h2 className="cart-product-title">{ item.name }</h2>
-					<button className="cart-remove-item" onClick={ ( event ) => handleRemoveProductClick( event, item.cartKey, products ) }>x</button>
 				</div>
-
-				<footer className="cart-product-footer">
-					{/*Qty*/}
-					<div style={{ display: 'flex', alignItems: 'center' }}>
-						<button className="increment-btn" onClick={( event ) => handleQtyChange( event, item.cartKey, 'decrement' )} >-</button>
-						<input
-							type="number"
-							min="1"
-							style={{ textAlign: 'center', width: '60px', paddingRight: '0' }}
-							data-cart-key={ item.cartKey }
-							className={ `woo-next-cart-qty-input form-control ${ updateCartProcessing ? 'woo-next-cart-disabled' : '' } ` }
-							value={ productCount }
-							onChange={ ( event ) => handleQtyChange( event, item.cartKey, '' ) }
-						/>
-						<button className="decrement-btn" onClick={( event ) => handleQtyChange( event, item.cartKey, 'increment' )}>+</button>
-						{ updateCartProcessing ?
-							<img className="woo-next-cart-item-spinner" src={ cartSpinnerGif } alt="spinner"/> : '' }
-					</div>
-					<div className="">
-						<span className="cart-product-price">{ ( 'string' !== typeof item.price ) ? item.price.toFixed( 2 ) : item.price }</span>
-						<span className="cart-total-price"> {( 'string' !== typeof item.totalPrice ) ? item.totalPrice.toFixed( 2 ) : item.totalPrice }</span>
-					</div>
-				</footer>
+				<div className="cart-product-detail">
+					<h4>{ item.name }</h4>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</div>
+				</div>
+			</td>
+			<td>
+			<div className="increament-input">
+				<button className="decriment-btn" onClick={( event ) => handleQtyChange( event, item.cartKey, 'decrement' )}><i className="fa fa-minus"></i></button>
+				<input
+				type="number"
+				min="1"
+				data-cart-key={ item.cartKey }
+				className={ `woo-next-cart-qty-input form-control ${ updateCartProcessing ? 'woo-next-cart-disabled' : '' } ` }
+				value={ productCount }
+				onChange={ ( event ) => handleQtyChange( event, item.cartKey, '' ) }
+			/>
+				<button className="increament-btn" onClick={( event ) => handleQtyChange( event, item.cartKey, 'increment' )}><i className="fa fa-plus"></i></button>
+				{ updateCartProcessing ?
+			<img className="woo-next-cart-item-spinner" src={ cartSpinnerGif } alt="spinner"/> : '' }
 			</div>
-		</div>
+			</td>
+			<td>{ ( 'string' !== typeof item.price ) ? item.price.toFixed( 2 ) : item.price }</td>
+			<td>{( 'string' !== typeof item.totalPrice ) ? item.totalPrice.toFixed( 2 ) : item.totalPrice }</td>
+		</tr>
+
 	)
 };
 

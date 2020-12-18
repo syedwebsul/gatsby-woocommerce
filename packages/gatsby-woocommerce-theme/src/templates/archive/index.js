@@ -22,13 +22,13 @@ const ArchivePage = ( props ) => {
 			{
 				! isEmpty( props.pageContext ) ? (
 					<>
-						<SEO
+						{/* <SEO
 							title={ name }
 							seoData={ seo }
 							uri={ uri }
 							header={ { siteTitle: 'Gatsby WooCommerce Theme' } }
 							openGraphImage={ getOgImage( seo ) }
-						/>
+						/> */}
 						{/* <Carousel categories={ categories }/> */}
 						<Search
 							products={ products }

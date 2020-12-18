@@ -14,13 +14,13 @@ const SingleProductPage = ( props ) => {
 			{
 				!isEmpty( props.pageContext ) ? (
 					<>
-						<SEO
+						{/* <SEO
 							title={ name }
 							seoData={ seo }
 							uri={ link }
 							header={ { siteTitle: 'Gatsby WooCommerce Theme' } }
 							openGraphImage={ getOgImage( seo ) }
-						/>
+						/> */}
 						<SingleProduct product={ product }/>
 					</>
 				) : (
