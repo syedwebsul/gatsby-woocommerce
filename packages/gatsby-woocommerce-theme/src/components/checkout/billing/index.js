@@ -11,215 +11,146 @@ const Billing = ({ input, handleOnChange }) => {
 
   return (
     <React.Fragment>
-      {/*Name*/}
 
-      <div className="billing-info">
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="first-name">
-              First Name
-              <abbr className="required" title="required">
-                *
-              </abbr>
-            </label>
-            <input
-              onChange={handleOnChange}
-              value={input.firstName}
-              type="text"
-              name="firstName"
-              className="form-control woo-next-checkout-input"
-              id="first-name"
-            />
-            <Error errors={input.errors} fieldName={"firstName"} />
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="last-name">
-              Last Name
-              <abbr className="required" title="required">
-                *
-              </abbr>
-            </label>
-            <input
-              onChange={handleOnChange}
-              value={input.lastName}
-              type="text"
-              name="lastName"
-              className="form-control woo-next-checkout-input"
-              id="last-name"
-            />
-            <Error errors={input.errors} fieldName={"lastName"} />
-          </div>
-        </div>
 
-        {/* Company Name */}
-        <div className="form-group">
-          <label htmlFor="company-name">Company Name</label>
-          <input
-            onChange={handleOnChange}
-            value={input.company}
-            type="text"
-            name="company"
-            className="form-control woo-next-checkout-input"
-            id="company-name"
-          />
-          <Error errors={input.errors} fieldName={"company"} />
-        </div>
-        {/* Country */}
-        <div className="form-group">
-          <label htmlFor="country-select">
-            Country
-            <abbr className="required" title="required">
-              *
-            </abbr>
-          </label>
-          {/* eslint-disable */}
-          <select
-            onChange={handleOnChange}
-            value={input.country}
-            name="country"
-            className="form-control woo-next-checkout-input"
-            id="country-select"
-          >
-            <option value="">Select a country...</option>
-            {countryList.length &&
-              countryList.map((country, index) => (
-                <option key={`${country}-${index}`} value={country.countryCode}>
-                  {country.countryName}
-                </option>
-              ))}
-          </select>
-          <Error errors={input.errors} fieldName={"country"} />
-        </div>
-        {/* Street Address */}
-        <div className="form-group">
-          <label htmlFor="street-address">
-            Street Address
-            <abbr className="required" title="required">
-              *
-            </abbr>
-          </label>
-          <input
-            type="text"
-            onChange={handleOnChange}
-            value={input.address1}
-            name="address1"
-            placeholder="House number and street name"
-            className="form-control woo-next-checkout-input"
-            id="street-address"
-          />
-          <Error errors={input.errors} fieldName={"address1"} />
-          <br />
-          <input
-            type="text"
-            onChange={handleOnChange}
-            value={input.address2}
-            name="address2"
-            placeholder="Apartment, suite, unit etc.(optional)"
-            className="form-control woo-next-checkout-input"
-            id="address-2"
-          />
-        </div>
-        {/* Town/City */}
-        <div className="form-group">
-          <label htmlFor="city">
-            Town/City
-            <abbr className="required" title="required">
-              *
-            </abbr>
-          </label>
-          <input
-            onChange={handleOnChange}
-            value={input.city}
-            type="text"
-            name="city"
-            className="form-control woo-next-checkout-input"
-            id="city"
-          />
-          <Error errors={input.errors} fieldName={"city"} />
-        </div>
-        {/* County */}
-        <div className="form-group">
-          <label htmlFor="state">
-            State/County
-            <abbr className="required" title="required">
-              *
-            </abbr>
-          </label>
-          <input
-            onChange={handleOnChange}
-            value={input.state}
-            type="text"
-            name="state"
-            className="form-control woo-next-checkout-input"
-            id="state"
-          />
-          <Error errors={input.errors} fieldName={"state"} />
-        </div>
-        {/* Post Code */}
-        <div className="form-group">
-          <label htmlFor="post-code">
-            Postcode
-            <abbr className="required" title="required">
-              *
-            </abbr>
-          </label>
-          <input
-            onChange={handleOnChange}
-            value={input.postcode}
-            type="text"
-            name="postcode"
-            className="form-control woo-next-checkout-input"
-            id="post-code"
-          />
-          <Error errors={input.errors} fieldName={"postcode"} />
-        </div>
-        {/*Phone & Email*/}
-        <div className="form-row">
-          <div className="form-group col-md-6">
-            <label htmlFor="phone">
-              Phone
-              <abbr className="required" title="required">
-                *
-              </abbr>
-            </label>
-            <input
-              onChange={handleOnChange}
-              value={input.phone}
-              type="text"
-              name="phone"
-              className="form-control woo-next-checkout-input"
-              id="phone"
-            />
-            <Error errors={input.errors} fieldName={"phone"} />
-          </div>
-          <div className="form-group col-md-6">
-            <label htmlFor="email">
-              Email
-              <abbr className="required" title="required">
-                *
-              </abbr>
-            </label>
-            <input
-              onChange={handleOnChange}
-              value={input.email}
-              type="email"
-              name="email"
-              className="form-control woo-next-checkout-input"
-              id="email"
-            />
-            <Error errors={input.errors} fieldName={"email"} />
-          </div>
-        </div>
-      </div>
+            <h3>Billing Details</h3>
+              
+              <div className="form-group">
+                <label>First Name *</label>
+                <input className="form-control" type="text" placeholder="enter your first name" onChange={handleOnChange}
+                  value={input.firstName}
+                  name="firstName"
+                  id="first-name"/>
+                  <Error errors={input.errors} fieldName={"firstName"} />
+              </div>
 
-	    { isEmpty( auth ) ? <CreateAccount handleOnChange={ handleOnChange } input={ input }/> : null }
+              <div className="form-group">
+                <label>Last Name *</label>
+                <input className="form-control" type="text" placeholder="enter your last name"  onChange={handleOnChange}
+                value={input.lastName}
+                name="lastName"
+                id="last-name"
+              />
+              <Error errors={input.errors} fieldName={"lastName"} />
+              </div>
 
-      <h4 className="mt-4 mb-4">Additional Information</h4>
-      <div className="form-group">
-      	<label htmlFor="order-notes">Order Notes</label>
-      	<textarea onChange={ handleOnChange } defaultValue={ input.customerNote } name="customerNote" className="form-control woo-next-checkout-textarea" id="order-notes" rows="4"/>
-      	<Error errors={ input.errors } fieldName={ 'customerNote' }/>
-      </div>
+              <div className="form-group">
+                <label>Email *</label>
+                <input className="form-control" type="email" placeholder="enter your email" onChange={handleOnChange}
+                  value={input.email}
+                  name="email"
+                  id="email"
+                />
+               <Error errors={input.errors} fieldName={"email"} />
+              </div>
+
+              <div className="form-group">
+                <label>Phone Number *</label>
+                <input className="form-control" type="text" placeholder="enter your phone number" onChange={handleOnChange}
+                  value={input.phone}
+                  name="phone"
+                  id="phone"
+                />
+                <Error errors={input.errors} fieldName={"phone"} />
+              </div>
+
+              <div className="form-group full-w">
+                <label>Company Name</label>
+                <input className="form-control" type="text" placeholder="enter company name" onChange={handleOnChange}
+                  value={input.company}
+                  name="company"
+                  id="company-name"
+                />
+                <Error errors={input.errors} fieldName={"company"} />
+              </div>
+
+
+              <h3>Shipping Informations</h3>
+
+              <div className="form-group full-w">
+                <label>Country / Region *</label>
+                <select
+                  onChange={handleOnChange}
+                  value={input.country}
+                  name="country"
+                  className="form-control"
+                  id="country-select"
+                >
+                  <option value="">Select a country...</option>
+                  {countryList.length &&
+                    countryList.map((country, index) => (
+                      <option key={`${country}-${index}`} value={country.countryCode}>
+                        {country.countryName}
+                      </option>
+                    ))}
+                </select>
+                <Error errors={input.errors} fieldName={"country"} />
+              </div>
+
+              <div className="form-group full-w">
+                <label>Street Address *</label>
+                <input className="form-control" type="text" placeholder="house number and street name" 
+                  onChange={handleOnChange}
+                  value={input.address1}
+                  name="address1"
+                  id="street-address"
+                />
+                <Error errors={input.errors} fieldName={"address1"} />
+              </div>
+
+              <div className="form-group full-w">
+                <label>Apartement, suite, unit, etc. (optional)</label>
+                <input className="form-control" type="text" placeholder="house number and street name" onChange={handleOnChange}
+                  value={input.address2}
+                  name="address2"
+                  id="address-2" />
+              </div>
+
+
+              <div className="form-group half-w">
+                <label>Town / City *</label>
+                <input className="form-control" type="text" placeholder="enter city"  onChange={handleOnChange}
+                  value={input.city}
+                  name="city"
+                  id="city"
+                />
+                <Error errors={input.errors} fieldName={"city"} />
+              </div>
+
+              <div className="form-group half-w">
+                <label>State *</label>
+                <input
+                  onChange={handleOnChange}
+                  value={input.state}
+                  type="text"
+                  name="state"
+                  className="form-control"
+                  id="state"
+                />
+                <Error errors={input.errors} fieldName={"state"} />
+              </div>
+
+              <div className="form-group half-w">
+                <label>ZIP *</label>
+                <input className="form-control" type="text" placeholder="enter your zip code" onChange={handleOnChange}
+                  value={input.postcode}
+                  name="postcode"
+                  id="post-code"
+                />
+                <Error errors={input.errors} fieldName={"postcode"} />
+              </div>
+
+
+              { isEmpty( auth ) ? <CreateAccount handleOnChange={ handleOnChange } input={ input }/> : null }
+
+              <h3>Additional Informations</h3>
+
+              <div className="form-group full-w">
+                <label>Order Note (optional)</label>
+                <textarea onChange={ handleOnChange } defaultValue={ input.customerNote }  placeholder="enter your messages" name="customerNote" className="form-control" id="order-notes"/>
+      	        <Error errors={ input.errors } fieldName={ 'customerNote' }/>
+              </div>
+    
     </React.Fragment>
   );
 };

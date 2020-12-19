@@ -7,35 +7,61 @@ const Index = ( { cart } ) => {
 		<>
 			{ cart ? (
 				<>
-					{/*Product Listing*/}
-					<table className="table table-hover">
-						<thead>
-						{ /* eslint-disable */ }
-						<tr className="woo-next-cart-head-container">
-							<th className="woo-next-cart-heading-el"/>
-							<th className="woo-next-cart-heading-el">Product</th>
-							<th className="woo-next-cart-heading-el">Total</th>
-						</tr>
-						</thead>
-						<tbody>
-						{ cart.products.length && (
+
+            <div className="cart-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Product</th>
+                          {/* <th>qty</th> */}
+                          <th>Subtotal</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+					  { cart.products.length && (
 							cart.products.map( item => (
 								<CheckoutCartItem key={ item.productId } item={ item } />
 							) )
 						) }
-						{/*Total*/}
-						<tr className="">
-							<td className=""/>
-							<td className="woo-next-checkout-total">Subtotal</td>
-							<td className="woo-next-checkout-total">{ cart.totalProductsPrice }</td>
-						</tr>
-						<tr className="">
-							<td className=""/>
-							<td className="woo-next-checkout-total">Total</td>
-							<td className="woo-next-checkout-total">{ cart.totalProductsPrice }</td>
-						</tr>
-						</tbody>
-					</table>
+
+                       
+                      </tbody>
+                    </table>
+                    <div className="checkout-subtotal">
+                        <span>Subtotal</span>
+                        <span>{ cart.totalProductsPrice }</span>
+                    </div>
+
+                     <div className="checkout-shipping">
+                       <h4>Shipping</h4>
+                       <div className="shipping-list">
+                        <input type="radio" name="free" />
+                         <div className="shipping-details">
+                            <h6>Free Shipping</h6>
+                            <p>Giving information on its origins, as well as a random Lipsum generator</p>
+                          </div>
+                          <div className="shipping-price">
+                             <h5>$0.00</h5>
+                          </div>
+                       </div>
+                       <div className="shipping-list">
+                        <input type="radio" name="free" />
+                         <div className="shipping-details">
+                            <h6>Other Shipping Method</h6>
+                          </div>
+                       </div>
+                    </div> 
+
+
+                    <div className="checkout-total">
+                        <span>Total</span>
+                        <span>{ cart.totalProductsPrice }</span>
+                    </div>
+
+              </div>
+
+	
 				</>
 			) : '' }
 		</>

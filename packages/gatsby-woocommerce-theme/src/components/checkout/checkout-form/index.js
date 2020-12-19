@@ -140,24 +140,41 @@ const CheckoutForm = () => {
     <>
       {cart ? (
         <form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
-          <div className="row">
-            {/*Billing Details*/}
-            <div className="col-lg-6 mb-lg-0 mb-5">
-              <h2 className="mb-4">Billing Details</h2>
-              <Billing input={input} handleOnChange={handleOnChange} />
+
+       <div className="row">
+            <div className="col-md-12">
+              <h2>Checkout</h2>
             </div>
-            {/* Order & Payments*/}
-            <div className="col-lg-6">
-              {/*	Order*/}
-              <h2 className="mb-4">Your Order</h2>
+
+            <div className="col-md-8">
+
+            <div className="checkout-form">
+
+               <Billing input={input} handleOnChange={handleOnChange} />
+
+            </div>
+
+            </div>
+ 
+
+
+
+            <div className="col-md-4">
+
+            <div className="checkout-sidebar">
+
+              <h3>Your Order</h3>
+
               <YourOrder cart={cart} />
 
               {/*Payment*/}
               <PaymentModes input={input} handleOnChange={handleOnChange} />
-              <div className="woo-next-place-order-btn-wrap mt-5">
+
+              <div className="payment-btn-info">
+              <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+              
                 <button
-                  className="woo-next-large-black-btn woo-next-place-order-btn btn btn-dark"
-                  style={{ backgroundColor: '#fd7e35', color: '#fff', borderColor: '#fd7e35' }}
+                  className="place-order"
                   type="submit"
                 >
                   Place Order
@@ -167,7 +184,10 @@ const CheckoutForm = () => {
               {/* Checkout Loading*/}
               {checkoutLoading && <p>Processing Order...</p>}
               {requestError && <CheckoutError requestError={ requestError }/> }
+
+              </div>
             </div>
+
           </div>
         </form>
       ) : (

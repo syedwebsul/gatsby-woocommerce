@@ -3,7 +3,8 @@ import Error from "../error";
 
 const Index = ( { input, handleOnChange } ) => {
 	return (
-		<div className="mt-3">
+		<div className="payment-method">
+            <h3>Payment Method</h3>
 			<Error errors={ input.errors } fieldName={ 'paymentMethod' }/>
 			{/*Direct bank transfers*/}
 			<div className="form-check woo-next-payment-input-container mt-2">
@@ -44,10 +45,6 @@ const Index = ( { input, handleOnChange } ) => {
 					<input onChange={ handleOnChange } value="ccavenue" className="form-check-input" name="paymentMethod" type="radio"/>
 					<span className="woo-next-payment-content">CC Avenue</span>
 				</label>
-			</div>
-			{/*	Payment Instructions*/}
-			<div className="woo-next-checkout-payment-instructions mt-2">
-				Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
 			</div>
 		</div>
 	);

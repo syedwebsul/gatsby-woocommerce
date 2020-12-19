@@ -52,6 +52,10 @@ const Header = ({ data }) => {
                     <WishListIcon/>
                     <div className="user-account">
                         <img src={user} alt="" />
+                        {/* <ul className="user-account-menu">
+                            <li><Link to="/my-account/">Login</Link></li>
+                            <li><Link to="/my-account/">Register</Link></li>
+                        </ul> */}
                     </div>
                     <CartIcon/> 
                     <Link className="get-started" to="/">Get Started</Link>                   

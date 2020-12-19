@@ -97,6 +97,36 @@ body{
     padding: 0px 20px;
 }
 
+.user-account {
+    position: relative;
+}
+
+.user-account-menu {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #efefef;
+    min-width: 130px;
+    border-radius: 3px;
+    top: 25px;
+    display: none;
+    transition: all 0.5s;
+}
+
+.user-account-menu li {
+    padding: 6px 10px;
+}
+
+
+.user-account-menu li a{
+    display: block;
+    color: #777;
+}
+
+
+.user-account:hover .user-account-menu {
+    display: block!important;
+}
+
 /********** Footer ****************/
 
 
@@ -1076,6 +1106,10 @@ body{
     background: #fff;
     border-radius: 8px;
     padding: 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
 }
 
@@ -1083,6 +1117,28 @@ body{
     background: #fff;
     padding: 30px 25px;
     border-radius: 8px;
+}
+
+.checkout-sidebar .payment-method {
+    padding: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f3f0f0;
+}
+
+.checkout-sidebar .payment-method span {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -.05px;
+    color: #0a0e15;
+}
+
+.checkout-sidebar .place-order {
+    max-width: 100%;
 }
 
 .checkout-form h3 {
@@ -1321,7 +1377,7 @@ body{
     border-bottom: 1px solid #f3f0f0;
 }
 
-.payment-method p {
+.checkout-sidebar .payment-btn-info p {
     font-weight: normal;
     font-size: 14px;
     line-height: 21px;
