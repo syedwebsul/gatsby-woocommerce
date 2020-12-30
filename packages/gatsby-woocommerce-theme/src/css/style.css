@@ -3161,3 +3161,19 @@ body{
         vertical-align: top;
     }
 }
+
+
+.subscribe-form .success,.subscribe-form .error {
+    margin-top: 6px;
+    padding: 0 10px;
+    color: #FFFFFF;
+}
+
+.contact-page-content .contact-form .error {
+    color: #dc402f;
+}
+
+.contact-page-content .contact-form .success {
+    color: #4BB543;
+    margin-bottom: 10px;
+}
