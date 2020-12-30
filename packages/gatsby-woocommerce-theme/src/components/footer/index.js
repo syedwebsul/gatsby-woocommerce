@@ -40,7 +40,7 @@ export default () => {
           }
         }
       `}
-      render={(data) => <Footer data={data} />}
+      render={(data) => data ? <Footer data={data} /> : null}
     />
   );
 };
