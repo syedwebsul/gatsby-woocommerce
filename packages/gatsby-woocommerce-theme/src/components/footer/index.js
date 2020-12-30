@@ -1,13 +1,13 @@
 /**
  * External dependencies.
  */
-import React from 'react';
+import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 
 /**
  * Internal dependencies.
  */
-import './style.scss';
+import "./style.scss";
 import { Footer } from "./footer-static";
 
 /**
@@ -16,35 +16,31 @@ import { Footer } from "./footer-static";
  * @return {*}
  */
 export default () => {
-
-	return (
-		<StaticQuery
-			query={ graphql`
-				    query FooterQuery {
-						  wp {
-						    footer: getFooter {
-						      copyrightText
-						      sidebarOne
-						      socialLinks {
-						        iconUrl
-						        iconName
-						      }
-						    }
-						  }
-						  footerMenuItems: allWpMenuItem(filter: {locations: {eq: HCMS_MENU_FOOTER}}) {
-						    edges {
-						      node {
-						        id
-						        databaseId
-						        title
-						        url
-						        label
-						      }
-						    }
-						  }
-				    }
-				` }
-			render={ data => <Footer data={ data }/> }
-		/>
-	)
-}
+  return (
+    <StaticQuery
+      query={graphql`
+        query FooterQuery {
+          wp {
+            footer: getFooter {
+              sidebarOne
+            }
+          }
+          footerMenuItems: allWpMenuItem(
+            filter: { locations: { eq: HCMS_MENU_FOOTER } }
+          ) {
+            edges {
+              node {
+                id
+                databaseId
+                title
+                url
+                label
+              }
+            }
+          }
+        }
+      `}
+      render={(data) => <Footer data={data} />}
+    />
+  );
+};

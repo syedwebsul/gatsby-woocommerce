@@ -13,7 +13,7 @@ const FrontPage = ( props ) => {
 
 	const {
 		      pageContext: {
-			      page: { title, seo, uri },
+			    //   page: { title, seo, uri },
 			      categories,
 			      categoryName,
 			      postSearchData: { products, options }
