@@ -50,7 +50,7 @@ const validateAndSanitizeRegisterForm = ( data ) => {
 
 
 		// If no errors
-		if ( ! errors[ fieldName ] ) {
+		if ( !errors[ fieldName ] ) {
 			sanitizedData[ fieldName ] = validator.trim( data[ fieldName ] );
 			sanitizedData[ fieldName ] = ( 'email' === type ) ? validator.normalizeEmail( sanitizedData[ fieldName ] ) : sanitizedData[ fieldName ];
 			sanitizedData[ fieldName ] = validator.escape( sanitizedData[ fieldName ] );
@@ -58,7 +58,7 @@ const validateAndSanitizeRegisterForm = ( data ) => {
 
 	};
 
-	addErrorAndSanitizedData( 'username', 'Username', 2, 35, 'string', true );
+	addErrorAndSanitizedData( 'username', 'Full name', 2, 35, 'string', true );
 	addErrorAndSanitizedData( 'email', 'Email', 11, 50, 'email', true );
 	addErrorAndSanitizedData( 'password', 'Password', 2, 35, 'string', true );
 

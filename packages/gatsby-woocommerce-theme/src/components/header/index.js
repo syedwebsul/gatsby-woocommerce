@@ -1,9 +1,9 @@
 /**
  * External dependencies.
  */
-import PropTypes from 'prop-types';
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from "prop-types";
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
 /**
  * Internal dependencies.
@@ -15,56 +15,58 @@ import { Header } from "./header-static";
  *
  * @return {*}
  */
-export default ( props ) => {
 
-	return (
-		<StaticQuery
-			query={ graphql`
-				    query HeaderQuery {
-					  wp {
-					    header: getHeader {
-					      siteTagLine
-					      siteTitle
-					      favicon
-					    }
-					  }
-					  headerMenuItems: allWpMenuItem(filter: {locations: {eq: HCMS_MENU_HEADER}}) {
-					    edges {
-					      node {
-					        id
-					        databaseId
-					        title
-					        url
-					        label
-					        childItems {
-					          nodes {
-					            id
-					            databaseId
-					            label
-					            url
-					          }
-					        }
-					      }
-					    }
-					  }
-				    }
-				` }
-			render={ data => (
-				<>
-					<Header data={ data }/>
-				</>
-			) }
-		/>
-	)
-}
+export default (props) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query HeaderQuery {
+          wp {
+            header: getHeader {
+              siteTagLine
+              siteTitle
+              favicon
+            }
+          }
+          headerMenuItems: allWpMenuItem(
+            filter: { locations: { eq: HCMS_MENU_HEADER } }
+          ) {
+            edges {
+              node {
+                id
+                databaseId
+                title
+                url
+                label
+                childItems {
+                  nodes {
+                    id
+                    databaseId
+                    label
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      `}
+      render={(data) => (
+        <>
+          <Header data={data} />
+        </>
+      )}
+    />
+  );
+};
 
 Header.propTypes = {
-	siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-	siteTitle: 'Gatsby WooCommerce Theme',
-	data: {
-		wp: {}
-	},
+  siteTitle: "Gatsby WooCommerce Theme",
+  data: {
+    wp: {},
+  },
 };

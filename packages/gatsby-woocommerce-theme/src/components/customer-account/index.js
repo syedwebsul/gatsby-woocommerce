@@ -137,7 +137,7 @@ const CustomerAccount = ({ handleLogout }) => {
                       <Tab tabFor="vertical-tab-four"><img src={payment} alt="" /> Payment Method</Tab>
                       <Tab tabFor="vertical-tab-five"><img src={address} alt="" />Addresses</Tab>
                       <Tab tabFor="vertical-tab-six"><img src={account} alt="" /> Account Details</Tab>
-                      <Tab tabFor="vertical-tab-seven"><img src={logout} alt="" /> Logout</Tab>
+                      <button className="rwt__tab " onClick={handleLogout}><img src={logout} alt="" /> Logout</button>
                     </TabList>
                     <TabPanel tabId="vertical-tab-one">
                       <Dashboard />

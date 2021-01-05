@@ -52,7 +52,7 @@ const validateAndSanitizeLoginForm = ( data ) => {
 
 	};
 
-	addErrorAndSanitizedData( 'username', 'Username', 2, 35, 'string', true );
+	addErrorAndSanitizedData( 'username', 'Email', 2, 35, 'string', true );
 	addErrorAndSanitizedData( 'password', 'Password', 2, 35, 'string', true );
 
 
