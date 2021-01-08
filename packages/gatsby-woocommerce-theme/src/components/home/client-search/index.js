@@ -138,7 +138,7 @@ class ClientSearch extends Component {
             className="search-input"
             value={searchQuery}
             onChange={this.searchData}
-            placeholder={data.productSearchPlaceholderText}
+            placeholder={this.props.data ? this.props.data.productSearchPlaceholderText:''}
             autoComplete="off" // removes the autosearch suggestions
           />
           <SearchIcon/>
