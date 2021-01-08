@@ -13,23 +13,23 @@ import CheckoutError from "../checkout-error";
 
 const CheckoutForm = () => {
   const initialState = {
-  	firstName: '',
-  	lastName: '',
-  	company: '',
-  	country: '',
-  	address1: '',
-  	address2: '',
-  	city: '',
-  	state: '',
-  	postcode: '',
-  	phone: '',
-  	email: '',
-  	createAccount: false,
-  	username: '',
-  	password: '',
-  	customerNote: '',
-  	paymentMethod: '',
-  	errors: null
+    firstName: "",
+    lastName: "",
+    company: "",
+    country: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    postcode: "",
+    phone: "",
+    email: "",
+    createAccount: false,
+    username: "",
+    password: "",
+    customerNote: "",
+    paymentMethod: "",
+    errors: null,
   };
 
   // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
@@ -46,9 +46,9 @@ const CheckoutForm = () => {
   //   email: "codeytek.academy@gmail.com",
   //   company: "Tech",
   //   createAccount: false,
-	// username: '',
-	// password: '',
-	// customerNote: "My Order notes",
+  // username: '',
+  // password: '',
+  // customerNote: "My Order notes",
   //   paymentMethod: "cod",
   //   errors: null,
   // };
@@ -140,54 +140,43 @@ const CheckoutForm = () => {
     <>
       {cart ? (
         <form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
-
-       <div className="row">
+          <div className="row">
             <div className="col-md-12">
               <h2>Checkout</h2>
             </div>
 
             <div className="col-md-8">
-
-            <div className="checkout-form">
-
-               <Billing input={input} handleOnChange={handleOnChange} />
-
+              <div className="checkout-form">
+                <Billing input={input} handleOnChange={handleOnChange} />
+              </div>
             </div>
-
-            </div>
- 
-
-
 
             <div className="col-md-4">
+              <div className="checkout-sidebar">
+                <h3>Your Order</h3>
 
-            <div className="checkout-sidebar">
+                <YourOrder cart={cart} />
 
-              <h3>Your Order</h3>
+                {/*Payment*/}
+                <PaymentModes input={input} handleOnChange={handleOnChange} />
 
-              <YourOrder cart={cart} />
+                <div className="payment-btn-info">
+                  <p>
+                    Your personal data will be used to process your order,
+                    support your experience throughout this website, and for
+                    other purposes described in our privacy policy.
+                  </p>
 
-              {/*Payment*/}
-              <PaymentModes input={input} handleOnChange={handleOnChange} />
+                  <button className="place-order" type="submit">
+                    Place Order
+                  </button>
+                </div>
 
-              <div className="payment-btn-info">
-              <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-              
-                <button
-                  className="place-order"
-                  type="submit"
-                >
-                  Place Order
-                </button>
-              </div>
-
-              {/* Checkout Loading*/}
-              {checkoutLoading && <p>Processing Order...</p>}
-              {requestError && <CheckoutError requestError={ requestError }/> }
-
+                {/* Checkout Loading*/}
+                {checkoutLoading && <p>Processing Order...</p>}
+                {requestError && <CheckoutError requestError={requestError} />}
               </div>
             </div>
-
           </div>
         </form>
       ) : (

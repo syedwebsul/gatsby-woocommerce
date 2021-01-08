@@ -7,7 +7,7 @@ import Aside from "../aside";
 
 const Page = (props) => {
   const { data } = props;
-
+console.log('00',props)
   const hasImagesSizes =
     null !== data.featuredImage &&
     !isEmpty(data.featuredImage.node) &&

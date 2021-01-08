@@ -13,6 +13,7 @@ const Search = (props) => {
     <div className="search-section py-5">
       {/* Search */}
       <ClientSearch
+        data={props.data}
         products={products}
         initialProducts={initialProducts}
         categories={categories}

@@ -8,9 +8,9 @@ const OrderSuccess = ( props ) => {
 		return null;
 	}
 
-	const responseData = response.checkout;
+	 const responseData = response.checkout;
 
-	window.location.href = responseData.redirect;
+	// window.location.href = responseData.redirect;
 
 	return (
 		<div className="container">

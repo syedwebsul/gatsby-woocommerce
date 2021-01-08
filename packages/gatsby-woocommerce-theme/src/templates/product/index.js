@@ -7,7 +7,7 @@ import { getOgImage } from "../../utils/functions";
 
 const SingleProductPage = ( props ) => {
 
-	const { product, product: { name, link, seo } } = props.pageContext;
+	const { product,allProducts, product: { name, link, seo } } = props.pageContext;
 
 	return (
 		<Layout>
@@ -20,8 +20,8 @@ const SingleProductPage = ( props ) => {
 							uri={ link }
 							header={ { siteTitle: 'Gatsby WooCommerce Theme' } }
 							openGraphImage={ getOgImage( seo ) }
-						/> */}
-						<SingleProduct product={ product }/>
+						/> */}					
+						<SingleProduct product={ product } allProducts={allProducts}/>
 					</>
 				) : (
 					<div>Something went wrong</div>

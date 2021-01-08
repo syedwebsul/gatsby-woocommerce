@@ -6,9 +6,9 @@ import { isUserLoggedIn } from "../../utils/functions";
 import Logout from "./logout";
 import Addresses from "./addresses";
 import AccountDetails from "./account-details";
-import user from "../../images/img-profile.png"
-import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
-import 'react-web-tabs/dist/react-web-tabs.css';
+import user from "../../images/img-profile.png";
+import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
+import "react-web-tabs/dist/react-web-tabs.css";
 import dashboard from "../../images/dashboard-icon.png";
 import order from "../../images/order-icon.png";
 import track from "../../images/track-icon.png";
@@ -18,7 +18,6 @@ import account from "../../images/account-icon.png";
 import logout from "../../images/logout-icon.png";
 import TrackOrders from "./trackorder";
 import PaymentMethod from "./paymentmethod";
-
 
 // const auth = isUserLoggedIn();
 
@@ -75,7 +74,7 @@ import PaymentMethod from "./paymentmethod";
 // };
 
 const CustomerAccount = ({ handleLogout }) => {
- // const [active, setActive] = useState(1);
+  // const [active, setActive] = useState(1);
 
   return (
     // <div className="row">
@@ -102,68 +101,81 @@ const CustomerAccount = ({ handleLogout }) => {
     // </div>
 
     <div className="my-account-wrapper">
-
-        <div className="my-account-header">
-            <div className="container">
-                <div className="row">
-                  <div className="col-md-9">
-                      <div className="user-info">
-                        <h3>My Account</h3>
-                        <h5>Welcome Back Michel!</h5>
-                        <p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
-                      </div>
-                  </div>
-                  <div className="col-md-3">
-                      <div className="user-info">
-                        <img src={user} alt="" />
-                      </div>
-                  </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div className="my-account-content">
-            <div className="container">
-              <div className="row">
-                  <div className="col-md-12">
-
-                  <Tabs defaultTab="vertical-tab-one" vertical>
-                    <TabList>
-                      <Tab tabFor="vertical-tab-one"><img src={dashboard} alt="" /> Dashboard</Tab>
-                      <Tab tabFor="vertical-tab-two"><img src={order} alt="" /> Orders</Tab>
-                      <Tab tabFor="vertical-tab-three"><img src={track} alt="" /> Track My Order</Tab>
-                      <Tab tabFor="vertical-tab-four"><img src={payment} alt="" /> Payment Method</Tab>
-                      <Tab tabFor="vertical-tab-five"><img src={address} alt="" />Addresses</Tab>
-                      <Tab tabFor="vertical-tab-six"><img src={account} alt="" /> Account Details</Tab>
-                      <button className="rwt__tab " onClick={handleLogout}><img src={logout} alt="" /> Logout</button>
-                    </TabList>
-                    <TabPanel tabId="vertical-tab-one">
-                      <Dashboard />
-                    </TabPanel>
-                    <TabPanel tabId="vertical-tab-two">
-                      <Orders />
-                    </TabPanel>
-                    <TabPanel tabId="vertical-tab-three">
-                      <TrackOrders />
-                    </TabPanel>
-                    <TabPanel tabId="vertical-tab-four">
-                      <PaymentMethod />
-                    </TabPanel>
-                    <TabPanel tabId="vertical-tab-five">
-                      <Addresses />
-                    </TabPanel>
-                    <TabPanel tabId="vertical-tab-six">
-                      <AccountDetails />
-                    </TabPanel>
-                  </Tabs>
-
-                  </div>
+      <div className="my-account-header">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-9">
+              <div className="user-info">
+                <h3>My Account</h3>
+                <h5>Welcome Back Michel!</h5>
+                <p>
+                  From your account dashboard you can view your recent orders,
+                  manage your shipping and billing addresses, and edit your
+                  password and account details.
+                </p>
               </div>
             </div>
+            <div className="col-md-3">
+              <div className="user-info">
+                <img src={user} alt="" />
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
+      <div className="my-account-content">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <Tabs defaultTab="vertical-tab-one" vertical>
+                <TabList>
+                  <Tab tabFor="vertical-tab-one">
+                    <img src={dashboard} alt="" /> Dashboard
+                  </Tab>
+                  <Tab tabFor="vertical-tab-two">
+                    <img src={order} alt="" /> Orders
+                  </Tab>
+                  <Tab tabFor="vertical-tab-three">
+                    <img src={track} alt="" /> Track My Order
+                  </Tab>
+                  <Tab tabFor="vertical-tab-four">
+                    <img src={payment} alt="" /> Payment Method
+                  </Tab>
+                  <Tab tabFor="vertical-tab-five">
+                    <img src={address} alt="" />
+                    Addresses
+                  </Tab>
+                  <Tab tabFor="vertical-tab-six">
+                    <img src={account} alt="" /> Account Details
+                  </Tab>
+                  <button className="rwt__tab " onClick={handleLogout}>
+                    <img src={logout} alt="" /> Logout
+                  </button>
+                </TabList>
+                <TabPanel tabId="vertical-tab-one">
+                  <Dashboard />
+                </TabPanel>
+                <TabPanel tabId="vertical-tab-two">
+                  <Orders />
+                </TabPanel>
+                <TabPanel tabId="vertical-tab-three">
+                  <TrackOrders />
+                </TabPanel>
+                <TabPanel tabId="vertical-tab-four">
+                  <PaymentMethod />
+                </TabPanel>
+                <TabPanel tabId="vertical-tab-five">
+                  <Addresses />
+                </TabPanel>
+                <TabPanel tabId="vertical-tab-six">
+                  <AccountDetails />
+                </TabPanel>
+              </Tabs>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

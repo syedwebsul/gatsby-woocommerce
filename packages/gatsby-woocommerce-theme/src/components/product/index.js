@@ -31,6 +31,7 @@ const Product = (props) => {
         <Link to={product.link} className="product-image">
           {!isEmpty(product.image) ? (
 			<figure>
+   
 				<LazyLoadImage
 					alt={product.image.altText ? product.image.altText : ""}
 					height={imgHeight}

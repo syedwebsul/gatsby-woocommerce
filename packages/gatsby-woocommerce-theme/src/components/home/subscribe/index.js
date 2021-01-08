@@ -5,7 +5,7 @@ import rightimg from "../../../images/home-img-right.png";
 import { emailRegex } from "../../../config/keys.js";
 import { userInstance } from "../../../config/axios.js";
 import axios from "axios";
-const Subscribe = () => {
+const Subscribe = ({data}) => {
   const [formData, setFormData] = useState({ email: "" });
   const [formDataError, setFormDataError] = useState({ email: false });
   const [success, setSuccess] = useState(false);
@@ -41,10 +41,9 @@ const Subscribe = () => {
       <div className="subscribe-bg">
         <div className="container">
           <div className="subscribe-content">
-            <h2>Subscribe to learn more</h2>
+            <h2>{data.subscribeHeading}</h2>
             <p>
-              Quisque pretium dolor turpis, quis blandit turpis semper ut. Nam
-              malesuada eros nec luctus laoreet.
+             {data.subscribeDescription}
             </p>
           </div>
           <div className="subscribe-form">
@@ -54,9 +53,9 @@ const Subscribe = () => {
               value={email}
               onChange={handleChange}
               className="form-control"
-              placeholder="Your email ..."
+              placeholder={data.subscribeInputPlaceholderText}
             />
-            <button onClick={onSubmit}>Subscribe</button>
+            <button onClick={onSubmit}>{data.subscribeButtonText}</button>
             {formDataError.email && (
               <div className="error">Please provide valid email</div>
             )}

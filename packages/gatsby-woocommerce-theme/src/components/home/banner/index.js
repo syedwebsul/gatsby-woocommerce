@@ -4,7 +4,7 @@ import leftimg from "../../../images/home-img-left.png";
 import rightimg from "../../../images/home-img-right.png";
 import rightimgmbl from "../../../images/home-img-right-mbl.png";
 
-const HomeBanner = () => {
+const HomeBanner = ({data}) => {
 
 
   return (
@@ -18,8 +18,8 @@ const HomeBanner = () => {
            
 
             <div className="banner-content">
-                <h2>Get everything Sergio’s all in one marketplace</h2>
-                <a href="">Get Started</a>
+                <h2>{data.mainBannerHeading}</h2>
+                <a href="">{data.mainBannerButtonText}</a>
             </div>
 
             <div className="right-graphic">

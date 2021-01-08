@@ -118,8 +118,7 @@ class ClientSearch extends Component {
 
   render() {
     const { searchResults, searchQuery } = this.state;
-    const { placeholder, categories, category, initialProducts } = this.props;
-
+    const { placeholder, categories, category, initialProducts, data } = this.props;
     const queryResults = searchResults;
 
     return (
@@ -127,8 +126,8 @@ class ClientSearch extends Component {
       <div className="container">
       <div className="product-search">
         <div className="product-heading">
-            <h2>Shop all products</h2>
-            <p>Quisque pretium dolor turpis, quis blandit turpis</p>
+            <h2>{data.shopProductHeading}</h2>
+            <p>{data.shopProductDescription}</p>
         </div>
         <form className="search-form" onSubmit={this.handleSubmit}>
           <label htmlFor="Search" className="screen-reader-text">
@@ -139,7 +138,7 @@ class ClientSearch extends Component {
             className="search-input"
             value={searchQuery}
             onChange={this.searchData}
-            placeholder={placeholder}
+            placeholder={data.productSearchPlaceholderText}
             autoComplete="off" // removes the autosearch suggestions
           />
           <SearchIcon/>

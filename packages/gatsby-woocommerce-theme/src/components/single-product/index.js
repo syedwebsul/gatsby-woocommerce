@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import AddToCartButton from "../cart/add-to-cart-button";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -12,97 +12,104 @@ import ProductOption from "../productoption";
 
 const productImagePlaceholder = "https://via.placeholder.com/434";
 
-const SingleProduct = ( props ) => {
-	const { product } = props;
-	const [count, setCount] = useState(1);
-	const hasImagesSizes =
-		      !isEmpty( product.image ) && !isEmpty( product.image.mediaDetails.sizes );
-	const imgSrcUrl      = hasImagesSizes
-		? product.image.sourceUrl
-		: "";
+const SingleProduct = (props) => {
+	const allProductsExcept = props.allProducts.filter(el=>el.id !== props.product.id)
+  const { product } = props;
+  const [count, setCount] = useState(1);
+  const hasImagesSizes =
+    !isEmpty(product.image) && !isEmpty(product.image.mediaDetails.sizes);
+  const imgSrcUrl = hasImagesSizes ? product.image.sourceUrl : "";
 
-	const displayProductImages = () => {
-		if ( !isEmpty( product.galleryImages.nodes ) ) {
-			return <ProductCarousel galleryImages={ product.galleryImages }/>
-		} else if ( !isEmpty( product.image ) ) {
-			return (
-				<figure>
-					<LazyLoadImage
-						alt={ product.image.altText ? product.image.altText : "" }
-						src={ imgSrcUrl } // use normal <img> attributes as props
-						effect="blur"
-					/>
-				</figure>
-			)
-		} else if ( !isEmpty( productImagePlaceholder ) ) {
-			return (
-				<figure>
-					<LazyLoadImage
-						alt="default"
-						height="450"
-						src={ productImagePlaceholder }
-						width="450"
-						effect="blur"
-					/>
-				</figure>
-			)
-		} else {
-			return null;
-		}
-	}
+  const displayProductImages = () => {
+    if (!isEmpty(product.galleryImages.nodes)) {
+      return <ProductCarousel galleryImages={product.galleryImages} />;
+    } else if (!isEmpty(product.image)) {
+      return (
+        <figure>
+          <LazyLoadImage
+            alt={product.image.altText ? product.image.altText : ""}
+            src={imgSrcUrl} // use normal <img> attributes as props
+            effect="blur"
+          />
+        </figure>
+      );
+    } else if (!isEmpty(productImagePlaceholder)) {
+      return (
+        <figure>
+          <LazyLoadImage
+            alt="default"
+            height="450"
+            src={productImagePlaceholder}
+            width="450"
+            effect="blur"
+          />
+        </figure>
+      );
+    } else {
+      return null;
+    }
+  };
 
-	return (
-		// @TODO Need to handle Group products differently.
-		!isEmpty( product ) && "GroupProduct" !== product.nodeType ? (
-			<div className="single-product-page">
-				<div className="container">
-				<div className="row">
-					<div className="col-lg-5 col-md-6 mb-5 product-image-wrap">
-						<div className="product-image">
-							{ displayProductImages() }
-						</div>
-						<SocialShareCard title={ product.name } sectionTitle="Share this product"
-							                 link={ product.uri }/>
-					</div>
-					<div className="col-lg-7 col-md-6 mb-5">
-						<div className="single-product-desc">
-							<h3>{ product.name ? product.name : "" }</h3>
-							<h6 className="card-subtitle mb-3">{ product.price }</h6>
+  return (
+    // @TODO Need to handle Group products differently.
+    !isEmpty(product) && "GroupProduct" !== product.nodeType ? (
+      <div className="single-product-page">
+  
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-5 col-md-6 mb-5 product-image-wrap">
+              <div className="product-image">{displayProductImages()}</div>
+              <SocialShareCard
+                title={product.name}
+                sectionTitle="Share this product"
+                link={product.uri}
+              />
+            </div>
+            <div className="col-lg-7 col-md-6 mb-5">
+              <div className="single-product-desc">
+                <h3>{product.name ? product.name : ""}</h3>
+                <h6 className="card-subtitle mb-3">{product.price}</h6>
 
-							{ !isEmpty( product.description ) ? (
-								<p dangerouslySetInnerHTML={ { __html: sanitize( product.description ) } }/>
-							) : null }
+                {!isEmpty(product.description) ? (
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: sanitize(product.description),
+                    }}
+                  />
+                ) : null}
 
+                {/* <ProductOption /> */}
 
+                <div className="single-product-add-to-cart">
+                  <div className="increament-input">
+                    <button
+                      className="decriment-btn"
+                      onClick={() => setCount(count - 1)}
+                    >
+                      <i className="fa fa-minus"></i>
+                    </button>
+                    <input type="number" value={count} />
+                    <button
+                      className="increament-btn"
+                      onClick={() => setCount(count + 1)}
+                    >
+                      <i className="fa fa-plus"></i>
+                    </button>
+                  </div>
 
-							<ProductOption />
+                  <AddToCartButton product={product} />
 
-							<div className="single-product-add-to-cart">
-								
-								<div className="increament-input">
-									<button className="decriment-btn" onClick={() => setCount(count - 1)}><i className="fa fa-minus"></i></button>
-									<input type="number" value={count} />
-									<button className="increament-btn" onClick={() => setCount(count + 1)}><i className="fa fa-plus"></i></button>
-								</div>
+                  <WishListIcon />
+                </div>
+              </div>
+            </div>
+          </div>
 
-								<AddToCartButton product={ product }/>
-
-								<WishListIcon/>
-
-							</div>
-							
-						</div>
-					</div>
-					</div>
-
-
-					<RelatedProducts />		
-					
-
-				</div>
-			</div>
-		) : null
-	);
+          <RelatedProducts allProducts={allProductsExcept} categoriesData={product.categoriesData}/>
+        </div>
+      </div>
+    ) : null
+  );
 };
 
 export default SingleProduct;

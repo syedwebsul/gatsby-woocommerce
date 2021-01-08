@@ -39,13 +39,14 @@ const FrontPage = ( props ) => {
 						/> */}
 						{/* <Carousel categories={ categories }/> */}
 					
-						<HomeBanner />
+						<HomeBanner data={props.pageContext ? props.pageContext.page.wpHomeQuery : null}/>
 
-						<HomeFeature />
+						<HomeFeature data={props.pageContext ? props.pageContext.page.wpHomeQuery : null}/>
 
-						<HomePlan />
+						<HomePlan data={props.pageContext ? props.pageContext.page.wpHomeQuery : null}/>
 
 						 <Search
+						 	data={props.pageContext ? props.pageContext.page.wpHomeQuery : null}
 							products={ products }
 							initialProducts={ products }
 							engine={ options }
@@ -54,7 +55,7 @@ const FrontPage = ( props ) => {
 						/>
 
 
-						<Subscribe />
+						<Subscribe data={props.pageContext ? props.pageContext.page.wpHomeQuery : null}/>
 					</>
 				) : (
 					<div>Something went wrong</div>

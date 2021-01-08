@@ -58,7 +58,7 @@ const Contact = () => {
         });
       }
 
-      console.log(request, "email");
+   
     }
   };
   return (
