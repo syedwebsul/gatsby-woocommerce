@@ -18,8 +18,8 @@ import account from "../../images/account-icon.png";
 import logout from "../../images/logout-icon.png";
 import TrackOrders from "./trackorder";
 import PaymentMethod from "./paymentmethod";
-
-// const auth = isUserLoggedIn();
+import { isEmpty } from "lodash";
+const auth = isUserLoggedIn();
 
 // const tabItems = [
 //   {
@@ -75,7 +75,7 @@ import PaymentMethod from "./paymentmethod";
 
 const CustomerAccount = ({ handleLogout }) => {
   // const [active, setActive] = useState(1);
-
+  const { user } = auth;
   return (
     // <div className="row">
     //   <div className="account-details-menu col-3">
@@ -107,7 +107,21 @@ const CustomerAccount = ({ handleLogout }) => {
             <div className="col-md-9">
               <div className="user-info">
                 <h3>My Account</h3>
-                <h5>Welcome Back Michel!</h5>
+                <h5>
+                  {" "}
+                  {!isEmpty(user.firstName) || !isEmpty(user.lastName) ? (
+                    <>
+                      Welcome Back{" "}
+                      <strong>
+                        {user.firstName} {user.lastName}!
+                      </strong>
+                    </>
+                  ) : (
+                    <>
+                      Welcome Back <strong>{user.username}!</strong>
+                    </>
+                  )}
+                </h5>
                 <p>
                   From your account dashboard you can view your recent orders,
                   manage your shipping and billing addresses, and edit your
@@ -154,7 +168,7 @@ const CustomerAccount = ({ handleLogout }) => {
                   </button>
                 </TabList>
                 <TabPanel tabId="vertical-tab-one">
-                  <Dashboard />
+                  <Dashboard authData={auth} />
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-two">
                   <Orders />

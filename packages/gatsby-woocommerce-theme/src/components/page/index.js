@@ -4,10 +4,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "./style.scss";
 import { sanitize } from "../../utils/functions";
 import Aside from "../aside";
-
+import ListAllProducts from "../../templates/list-products";
 const Page = (props) => {
   const { data } = props;
-console.log('00',props)
   const hasImagesSizes =
     null !== data.featuredImage &&
     !isEmpty(data.featuredImage.node) &&
@@ -28,32 +27,38 @@ console.log('00',props)
         <div className="page-container container py-5">
           {!isEmpty(data.title) ? <h2>{data.title}</h2> : null}
           <div className="row">
-            <main className="page-content col-md-8">
-              {!isEmpty(data.featuredImage) ? (
-				<figure>
-					<LazyLoadImage
-						alt={
-							data.featuredImage.node.altText
-								? data.featuredImage.node.altText
-								: ""
-						}
-						height={imgWidth}
-						src={imgSrcUrl} // use normal <img> attributes as props
-						width={imgHeight}
-						effect="blur"
-					/>
-				</figure>
-              ) : null}
+            <main className="page-content col-md-9">
+              {data.uri === "/shop/" ? (
+                <ListAllProducts />
+              ) : (
+                <>
+                  {!isEmpty(data.featuredImage) ? (
+                    <figure>
+                      <LazyLoadImage
+                        alt={
+                          data.featuredImage.node.altText
+                            ? data.featuredImage.node.altText
+                            : ""
+                        }
+                        height={imgWidth}
+                        src={imgSrcUrl} // use normal <img> attributes as props
+                        width={imgHeight}
+                        effect="blur"
+                      />
+                    </figure>
+                  ) : null}
 
-              {!isEmpty(data.content) ? (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: sanitize( data.content ),
-                  }}
-                />
-              ) : null}
+                  {!isEmpty(data.content) ? (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: sanitize(data.content),
+                      }}
+                    />
+                  ) : null}
+                </>
+              )}
             </main>
-			<Aside categories={ data.categoriesData }/>
+            <Aside categories={data.categoriesData} />
           </div>
         </div>
       ) : (

@@ -5,7 +5,15 @@ import ClientSearch from "../client-search";
 import "../../../images/search-background.png";
 
 const Search = (props) => {
-  const { products, initialProducts, categories, category, engine } = props;
+  const {
+    products,
+    initialProducts,
+    categories,
+    category,
+    engine,
+    searchdisable,
+    classes,
+  } = props;
 
   const placeholderText = "Search food...";
 
@@ -13,6 +21,8 @@ const Search = (props) => {
     <div className="search-section py-5">
       {/* Search */}
       <ClientSearch
+        classes={classes}
+        searchdisable={searchdisable}
         data={props.data}
         products={products}
         initialProducts={initialProducts}

@@ -4,32 +4,33 @@ import order1 from "../../../images/order-latest.png";
 import payment from "../../../images/PayPal.png";
 
 const Dashboard = ({ authData }) => {
-  // if (isEmpty(authData)) {
-  //   return null;
-  // }
+  if (isEmpty(authData)) {
+    return null;
+  }
 
-  // const { user } = authData;
+  const { user } = authData;
   return (
-    // <div className="card-body">
-    //   <div className="">
-    //     {!isEmpty(user.firstName) || !isEmpty(user.lastName) ? (
-    //       <p>
-    //         Hello{" "}
-    //         <strong>
-    //           {user.firstName} {user.lastName}!
-    //         </strong>
-    //       </p>
-    //     ) : (
-    //       <p>
-    //         Hello <strong>{user.username}!</strong>
-    //       </p>
-    //     )}
-    //     <section>
-    //       From your account dashboard you can view your recent orders, manage
-    //       your shipping and billing addresses
-    //     </section>
-    //   </div>
-    // </div>
+    <>
+    {/* <div className="card-body">
+      <div className="">
+        {!isEmpty(user.firstName) || !isEmpty(user.lastName) ? (
+          <p>
+            Hello{" "}
+            <strong>
+              {user.firstName} {user.lastName}!
+            </strong>
+          </p>
+        ) : (
+          <p>
+            Hello <strong>{user.username}!</strong>
+          </p>
+        )}
+        <section>
+          From your account dashboard you can view your recent orders, manage
+          your shipping and billing addresses
+        </section>
+      </div>
+    </div> */}
 
     <div className="dashboard">
       <h2>Dashboard</h2>
@@ -149,6 +150,7 @@ const Dashboard = ({ authData }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

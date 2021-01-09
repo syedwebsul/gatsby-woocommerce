@@ -5,7 +5,7 @@ import Product from "../../product";
 import "./style.scss";
 
 const Products = (props) => {
-  const { products } = props;
+  const { products, classes } = props;
   const [activePage, setActivePage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState(null);
   const productsPerPage = 4;
@@ -64,7 +64,7 @@ const Products = (props) => {
     <div className="container">
       <div className="product-container row">
         {currentProducts.map((product) => (
-          <Product key={product.id} product={product} />
+          <Product key={product.id} product={product} classes={classes}/>
         ))}
       </div>
       {/* <Pagination

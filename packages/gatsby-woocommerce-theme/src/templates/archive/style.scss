@@ -1,0 +1,11 @@
+.products-ary .search-section.py-5 {
+    padding-top: 0!important;
+}
+
+.products-ary .search-section.py-5 > .container {
+    display: none;
+}
+
+.products-ary .search-section.py-5 > .container + .search-results {
+    margin-top: 0!important;
+}

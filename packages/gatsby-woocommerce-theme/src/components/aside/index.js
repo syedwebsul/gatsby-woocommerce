@@ -9,7 +9,7 @@ const Aside = ( { categories } ) => {
 	}
 
 	return (
-		<aside className="aside col-md-4">
+		<aside className="aside col-md-3">
 			<CategoryWidget categories={categories}/>
 		</aside>
 	)

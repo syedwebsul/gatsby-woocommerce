@@ -27,7 +27,7 @@ const Product = (props) => {
   return (
     // @TODO Need to handle Group products differently.
     !isEmpty(product) && "GroupProduct" !== product.nodeType ? (
-      <div className="col-lg-3 col-md-6 mb-5">
+      <div className={props.classes ? props.classes : "col-lg-3 col-md-6 mb-5"}>
         <Link to={product.link} className="product-image">
           {!isEmpty(product.image) ? (
 			<figure>

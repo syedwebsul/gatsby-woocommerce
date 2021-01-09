@@ -7,24 +7,30 @@ const Index = ( { input, handleOnChange } ) => {
             <h3>Payment Method</h3>
 			<Error errors={ input.errors } fieldName={ 'paymentMethod' }/>
 			{/*Direct bank transfers*/}
-			<div className="form-check woo-next-payment-input-container mt-2">
+			{/* <div className="form-check woo-next-payment-input-container mt-2">
 				<label className="form-check-label">
 					<input onChange={ handleOnChange } value="bacs" className="form-check-input" name="paymentMethod" type="radio"/>
 					<span className="woo-next-payment-content">Direct Bank Transfer</span>
 				</label>
-			</div>
+			</div> */}
 			{/*Pay with Paypal*/}
-			<div className="form-check woo-next-payment-input-container mt-2">
+			{/* <div className="form-check woo-next-payment-input-container mt-2">
 				<label className="form-check-label">
 					<input onChange={ handleOnChange } value="paypal" className="form-check-input" name="paymentMethod" type="radio"/>
 					<span className="woo-next-payment-content">Pay with Paypal</span>
 				</label>
-			</div>
+			</div> */}
 			{/*Check Payments*/}
-			<div className="form-check woo-next-payment-input-container mt-2">
+			{/* <div className="form-check woo-next-payment-input-container mt-2">
 				<label className="form-check-label">
 					<input onChange={ handleOnChange } value="cheque" className="form-check-input" name="paymentMethod" type="radio"/>
 					<span className="woo-next-payment-content">Check Payments</span>
+				</label>
+			</div> */}
+			<div className="form-check woo-next-payment-input-container mt-2">
+				<label className="form-check-label">
+					<input onChange={ handleOnChange } value="stripe" className="form-check-input" name="paymentMethod" type="radio"/>
+					<span className="woo-next-payment-content">Stripe</span>
 				</label>
 			</div>
 			{/*Pay with Stripe*/}
@@ -34,18 +40,18 @@ const Index = ( { input, handleOnChange } ) => {
 					<span className="woo-next-payment-content">Cash on Delivery</span>
 				</label>
 			</div>
-			<div className="form-check woo-next-payment-input-container mt-2">
+			{/* <div className="form-check woo-next-payment-input-container mt-2">
 				<label className="form-check-label">
 					<input onChange={ handleOnChange } value="jccpaymentgatewayredirect" className="form-check-input" name="paymentMethod" type="radio"/>
 					<span className="woo-next-payment-content">JCC</span>
 				</label>
-			</div>
-			<div className="form-check woo-next-payment-input-container mt-2">
+			</div> */}
+			{/* <div className="form-check woo-next-payment-input-container mt-2">
 				<label className="form-check-label">
 					<input onChange={ handleOnChange } value="ccavenue" className="form-check-input" name="paymentMethod" type="radio"/>
 					<span className="woo-next-payment-content">CC Avenue</span>
 				</label>
-			</div>
+			</div> */}
 		</div>
 	);
 };

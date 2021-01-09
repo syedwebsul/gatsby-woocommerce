@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash';
 import Products from "../products";
 import './style.scss';
 
-const SearchResults = ( { queryResults, initialProducts } ) => {
+const SearchResults = ( { queryResults, initialProducts, classes } ) => {
 
 	if ( isEmpty( queryResults ) && isEmpty( initialProducts ) ) {
 		return null;
@@ -14,7 +14,7 @@ const SearchResults = ( { queryResults, initialProducts } ) => {
 
 	return (
 		<div className="search-results">
-			<Products products={ productsToBeDisplayed }/>
+			<Products products={ productsToBeDisplayed } classes={classes}/>
 		</div>
 	);
 };

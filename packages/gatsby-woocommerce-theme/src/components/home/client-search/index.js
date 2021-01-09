@@ -118,35 +118,53 @@ class ClientSearch extends Component {
 
   render() {
     const { searchResults, searchQuery } = this.state;
-    const { placeholder, categories, category, initialProducts } = this.props;
+    const {
+      classes,
+      placeholder,
+      categories,
+      category,
+      initialProducts,
+      searchdisable,
+    } = this.props;
     const queryResults = searchResults;
 
     return (
       <>
-      <div className="container">
-      <div className="product-search">
-       {this.props.data && <div className="product-heading">
-            <h2>{this.props.data.shopProductHeading}</h2>
-            <p>{this.props.data.shopProductDescription}</p>
-        </div>}
-        <form className="search-form" onSubmit={this.handleSubmit}>
-          <label htmlFor="Search" className="screen-reader-text">
-            Enter your search here
-          </label>
-          <input
-            id="Search"
-            className="search-input"
-            value={searchQuery}
-            onChange={this.searchData}
-            placeholder={this.props.data ? this.props.data.productSearchPlaceholderText:''}
-            autoComplete="off" // removes the autosearch suggestions
-          />
-          <SearchIcon/>
-        </form>
-        </div>
+        <div className="container">
+          <div className="product-search">
+            {this.props.data && (
+              <div className="product-heading">
+                <h2>{this.props.data.shopProductHeading}</h2>
+                <p>{this.props.data.shopProductDescription}</p>
+              </div>
+            )}
+            {searchdisable ? (
+              false
+            ) : (
+              <form className="search-form" onSubmit={this.handleSubmit}>
+                <label htmlFor="Search" className="screen-reader-text">
+                  Enter your search here
+                </label>
+                <input
+                  id="Search"
+                  className="search-input"
+                  value={searchQuery}
+                  onChange={this.searchData}
+                  placeholder={
+                    this.props.data
+                      ? this.props.data.productSearchPlaceholderText
+                      : ""
+                  }
+                  autoComplete="off" // removes the autosearch suggestions
+                />
+                <SearchIcon />
+              </form>
+            )}
+          </div>
         </div>
         {/* <Categories categories={categories} category={category} /> */}
         <SearchResults
+          classes={classes}
           queryResults={queryResults}
           initialProducts={initialProducts}
         />

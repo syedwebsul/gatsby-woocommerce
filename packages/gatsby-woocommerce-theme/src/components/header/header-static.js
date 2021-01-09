@@ -51,7 +51,8 @@ const Header = ({ data }) => {
                   <div className="cart-icon-wrap">
                     <WishListIcon/>
                     <div className="user-account">
-                        <img src={user} alt="" />
+                    <Link to="/my-account/"> <img src={user} alt="" /></Link>
+                       
                         {/* <ul className="user-account-menu">
                             <li><Link to="/my-account/">Login</Link></li>
                             <li><Link to="/my-account/">Register</Link></li>

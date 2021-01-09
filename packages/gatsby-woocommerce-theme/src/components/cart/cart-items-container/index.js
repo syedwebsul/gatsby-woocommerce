@@ -310,12 +310,12 @@ const CartItemsContainer = () => {
                       </div>
 
 
-                      <div className="apply-coupon">
+                      {/* <div className="apply-coupon">
                           <div className="subscribe-form">
                               <input type="email" className="form-control"  placeholder="Enter coupon code" />
                               <button>Apply Coupon</button>
                           </div>
-                      </div>
+                      </div> */}
                   </div>
               </div>
 
