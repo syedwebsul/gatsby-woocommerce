@@ -267,13 +267,13 @@ const Register = ({ setLoggedIn, setUserType }) => {
         <p>Enter all required fields below to create your account.</p>
         <form onSubmit={(event) => handleRegister(event)}>
           <div className="form-group">
-            <label>Full name *</label>
+            <label>Username *</label>
             <input
               type="text"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
               className="form-control"
-              placeholder="enter your full name"
+              placeholder="enter your username"
             />
           </div>
           <div className="form-group">

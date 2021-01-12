@@ -35,3 +35,8 @@
 .account-details-content {
   min-height: 355px;
 }
+
+.account-form form .form-group .form-control[readonly] {
+  background: #e0e0e0;
+  box-shadow: none;
+}

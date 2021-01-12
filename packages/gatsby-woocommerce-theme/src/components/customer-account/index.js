@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Dashboard from "./dashboard";
 import Orders from "./orders";
@@ -19,6 +19,8 @@ import logout from "../../images/logout-icon.png";
 import TrackOrders from "./trackorder";
 import PaymentMethod from "./paymentmethod";
 import { isEmpty } from "lodash";
+import { userInstance } from "../../config/axios.js";
+import axios from "axios";
 const auth = isUserLoggedIn();
 
 // const tabItems = [
@@ -74,8 +76,22 @@ const auth = isUserLoggedIn();
 // };
 
 const CustomerAccount = ({ handleLogout }) => {
-  // const [active, setActive] = useState(1);
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { user } = auth;
+  const getOrders = async () => {
+    setLoading(true);
+    const payload = { customerdata: { id: user.email } };
+    const res = await userInstance.post("/wp-json/get/customer/order", payload);
+    if (res.status === 200) {
+      setOrders([...res.data]);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getOrders();
+  }, []);
   return (
     // <div className="row">
     //   <div className="account-details-menu col-3">
@@ -150,17 +166,17 @@ const CustomerAccount = ({ handleLogout }) => {
                   <Tab tabFor="vertical-tab-two">
                     <img src={order} alt="" /> Orders
                   </Tab>
-                  <Tab tabFor="vertical-tab-three">
+                  {/* <Tab tabFor="vertical-tab-three">
                     <img src={track} alt="" /> Track My Order
+                  </Tab> */}
+                  {/* <Tab tabFor="vertical-tab-four">
+                    <img src={payment} alt="" /> Payment Method
+                  </Tab> */}
+                  <Tab tabFor="vertical-tab-three">
+                    <img src={address} alt="" />
+                    Billing Information
                   </Tab>
                   <Tab tabFor="vertical-tab-four">
-                    <img src={payment} alt="" /> Payment Method
-                  </Tab>
-                  <Tab tabFor="vertical-tab-five">
-                    <img src={address} alt="" />
-                    Addresses
-                  </Tab>
-                  <Tab tabFor="vertical-tab-six">
                     <img src={account} alt="" /> Account Details
                   </Tab>
                   <button className="rwt__tab " onClick={handleLogout}>
@@ -168,22 +184,26 @@ const CustomerAccount = ({ handleLogout }) => {
                   </button>
                 </TabList>
                 <TabPanel tabId="vertical-tab-one">
-                  <Dashboard authData={auth} />
+                  <Dashboard
+                    authData={auth}
+                    orders={orders}
+                    loading={loading}
+                  />
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-two">
-                  <Orders />
+                  <Orders orders={orders} />
                 </TabPanel>
-                <TabPanel tabId="vertical-tab-three">
+                {/* <TabPanel tabId="vertical-tab-three">
                   <TrackOrders />
+                </TabPanel> */}
+                {/* <TabPanel tabId="vertical-tab-four">
+                  <PaymentMethod />
+                </TabPanel> */}
+                <TabPanel tabId="vertical-tab-three">
+                  <Addresses    authData={auth}/>
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-four">
-                  <PaymentMethod />
-                </TabPanel>
-                <TabPanel tabId="vertical-tab-five">
-                  <Addresses />
-                </TabPanel>
-                <TabPanel tabId="vertical-tab-six">
-                  <AccountDetails />
+                  <AccountDetails authData={auth} />
                 </TabPanel>
               </Tabs>
             </div>

@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { isEmpty } from "lodash";
-import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
-
-
+import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
+import { UPDATE_USER } from "../../../mutations/register";
+import { useMutation } from "@apollo/client";
+import { v4 } from "uuid";
 const AccountDetails = ({ authData }) => {
-  // if (isEmpty(authData)) {
-  //   return null;
-  // }
+  const { user } = authData;
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [userData, setUserData] = useState({ firstName: "", lastName: "" });
 
-  // const { user } = authData;
+  const [
+    updateUser,
+    { loading: updateLoading, error: updateError },
+  ] = useMutation(UPDATE_USER, {
+    variables: {
+      input: {
+        clientMutationId: v4(), // Generate a unique id.,
+        id: user.id,
+        email: user.email,
+        firstName: "vinsy",
+        lastName: "krishna",
+      },
+    },
+    onCompleted: (data) => {
+      // If error.
+      if (!isEmpty(updateError)) {
+        setErrorMessage(updateError.graphQLErrors[0].message);
+      }
+    },
+    onError: (error) => {
+      if (error) {
+        if (!isEmpty(error)) {
+          setErrorMessage(error.graphQLErrors[0].message);
+        }
+      }
+    },
+  });
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateUser();
+  };
+  useEffect(() => {
+    setUserData({ firstName: user.firstName, lastName: user.lastName });
+  }, []);
+  if (isEmpty(authData)) {
+    return null;
+  }
   return (
     // <div className="card-body">
     //   {!isEmpty(user.firstName) ? (
@@ -35,45 +73,75 @@ const AccountDetails = ({ authData }) => {
     // </div>
 
     <div className="account-page">
-
       <h2>Account Details</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+      {console.log(
+        "errorMessage",
+        errorMessage,
+        "successMessage",
+        successMessage
+      )}
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry.{" "}
+      </p>
 
+      {console.log(user, "userData")}
 
-
-      <div className="account-tab">
-          <Tabs defaultTab="account">
+      <div className="account-tab row">
+        {/* <Tabs defaultTab="account">
             <TabList>
               <Tab tabFor="account">User Account</Tab>
               <Tab tabFor="password">Change Password</Tab>
             </TabList>
-            <TabPanel tabId="account">
-                <div className="account-form">
-                    <form>
-                        <div className="form-group">
-                            <label>First Name *</label>
-                            <input type="text" placeholder="enter your first name" className="form-control" />
-                        </div>
-                        <div className="form-group">
-                            <label>Last Name *</label>
-                            <input type="text" placeholder="enter your last name" className="form-control" />
-                        </div>
-                        <div className="form-group">
-                            <label>Email  *</label>
-                            <input type="email" placeholder="enter your email" className="form-control" />
-                        </div>
-                        <div className="form-group">
-                            <label>Display Name  *</label>
-                            <input type="text" placeholder="enter your display name" className="form-control" />
-                        </div>
-                        <div className="form-group full-w">
-                          <button className="save-changes">Save Changes</button>
-                        </div>
-                    </form>
-                </div>
-            </TabPanel>
+            <TabPanel tabId="account"> */}
+        <div className="account-form">
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>First Name *</label>
+              <input
+                type="text"
+                placeholder="enter your first name"
+                value={userData.firstName}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label>Last Name *</label>
+              <input
+                type="text"
+                placeholder="enter your last name"
+                value={userData.lastName}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label>Email *</label>
+              <input
+                type="email"
+                placeholder="enter your email"
+                value={user.email}
+                readOnly={true}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group">
+              <label>Username *</label>
+              <input
+                type="text"
+                placeholder="enter your display name"
+                value={user.username}
+                readOnly={true}
+                className="form-control"
+              />
+            </div>
+            <div className="form-group full-w">
+              <button className="save-changes">Save Changes</button>
+            </div>
+          </form>
+        </div>
+        {/* </TabPanel>
 
-            <TabPanel tabId="password">
+         <TabPanel tabId="password">
             <div className="account-form">
                     <form>
                         <div className="form-group">
@@ -95,9 +163,8 @@ const AccountDetails = ({ authData }) => {
                 </div>
             </TabPanel>
 
-          </Tabs>
-        </div>
-
+          </Tabs> */}
+      </div>
     </div>
   );
 };
