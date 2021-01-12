@@ -58,7 +58,7 @@ const validateAndSanitizeRegisterForm = ( data ) => {
 
 	};
 
-	addErrorAndSanitizedData( 'username', 'Full name', 2, 35, 'string', true );
+	addErrorAndSanitizedData( 'username', 'Username', 2, 35, 'string', true );
 	addErrorAndSanitizedData( 'email', 'Email', 11, 50, 'email', true );
 	addErrorAndSanitizedData( 'password', 'Password', 2, 35, 'string', true );
 

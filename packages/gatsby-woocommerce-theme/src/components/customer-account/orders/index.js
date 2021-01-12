@@ -5,7 +5,7 @@ import { isEmpty } from "lodash";
 import { getFormattedDate } from "../../../utils/functions";
 import Link from "gatsby-link";
 
-const Orders = ({ authData }) => {
+const Orders = ({ orders }) => {
   // const {
   //   user: { id },
   // } = authData;
@@ -63,9 +63,7 @@ const Orders = ({ authData }) => {
     <div className="my-orders">
       <h2>Orders</h2>
       <p>
-        To track your order please enter your Order ID in the box below and
-        press the "Track" button. This was given to you on your receipt and in
-        the confirmation email you should have received.
+        You can see your order status here...
       </p>
 
       <div className="cart-table">
@@ -80,23 +78,35 @@ const Orders = ({ authData }) => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>#OR2122GBP</td>
-              <td>January 28, 2020</td>
-              <td className="hold">
-                <span>On Hold</span>
-              </td>
-              <td className="order-price">
-                $40.00 <span>for 2 items</span>
-              </td>
-              <td>
-                <a href="#" className="view-order-btn">
-                  View order
-                </a>
-              </td>
-            </tr>
+            {orders.length ? (
+              orders.map((el, i) => {
+                return (
+                  <tr>
+                    <td>{el.id}</td>
+                    <td>{getFormattedDate(el.date_created.date)}</td>
+                    <td className={el.status}>
+                      <span>{el.status}</span>
+                    </td>
+                    <td className="order-price">
+                      {el.currency === "USD" ? "$" : el.currency} {el.total} <span>for {el.products.length} product{el.products.length > 1 ? "s" : ""}</span>
+                    </td>
+                    <td>
+                      <Link to={`/order-details?orderId=${el.id}`} className="view-order-btn">
+                        View order
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan={5} style={{ textAlign: "center" }}>
+                  No orders
+                </td>
+              </tr>
+            )}
 
-            <tr>
+            {/* <tr>
               <td>#OR2122GBP</td>
               <td>January 28, 2020</td>
               <td className="processing">
@@ -142,7 +152,7 @@ const Orders = ({ authData }) => {
                   View order
                 </a>
               </td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>

@@ -19,3 +19,14 @@ const REGISTER_CUSTOMER = gql`
 `;
 
 export default REGISTER_CUSTOMER;
+export const UPDATE_USER = gql`
+    mutation UPDATE_USER( $input: UpdateUserInput! ) {
+        updateUser( input:$input ) {
+            user {
+                id                
+                firstName
+	            lastName               
+            }
+        }
+    }
+`;
