@@ -7,11 +7,11 @@ import insta3 from "../../images/insta3.png";
 import insta4 from "../../images/insta4.png";
 import insta5 from "../../images/insta5.png";
 import insta6 from "../../images/insta6.png";
-import address from "../../images/addressicon.png";
-import phone from "../../images/phoneicon.png";
-import fb from "../../images/fb-icon.png";
-import twitter from "../../images/twitter-icon.png";
-import insta from "../../images/insta-icon.png";
+import address from "../../images/addressicon.svg";
+import phone from "../../images/phoneicon.svg";
+import fb from "../../images/facebook.svg";
+import twitter from "../../images/twitter.svg";
+import insta from "../../images/instagram.svg";
 
 import React from "react";
 
@@ -22,15 +22,14 @@ const Footer = ({ data }) => {
     },
     footerMenuItems,
   } = data;
-
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__top">
-          {sidebarOne ? (
+          {data.wp && data.wp.sidebarOne ? (
             <div className="footer-box footer-one">
               <div
-                dangerouslySetInnerHTML={{ __html: sanitize(sidebarOne) }}
+                dangerouslySetInnerHTML={{ __html: sanitize(data.wp.sidebarOne) }}
                 className="footer__sidebar-one"
               />
 
@@ -66,7 +65,7 @@ const Footer = ({ data }) => {
                       className="header-nav__menu-link"
                       to={normalizePath(menu.node.url)}
                     >
-                      <i class="fa fa-angle-right"></i> {menu.node.label}
+                      <i className="fa fa-angle-right"></i> {menu.node.label}
                     </Link>
                   </li>
                 ))}
