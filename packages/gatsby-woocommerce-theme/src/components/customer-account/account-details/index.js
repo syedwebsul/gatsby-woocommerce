@@ -1,46 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { isEmpty } from "lodash";
 import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
-import { UPDATE_USER } from "../../../mutations/register";
-import { useMutation } from "@apollo/client";
 import { v4 } from "uuid";
+import axios from "axios";
+import { server } from "../../../config/keys";
 const AccountDetails = ({ authData }) => {
   const { user } = authData;
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState({
+    firstName: "",
+    lastName: "",
+  });
   const [successMessage, setSuccessMessage] = useState("");
   const [userData, setUserData] = useState({ firstName: "", lastName: "" });
 
-  const [
-    updateUser,
-    { loading: updateLoading, error: updateError },
-  ] = useMutation(UPDATE_USER, {
-    variables: {
-      input: {
-        clientMutationId: v4(), // Generate a unique id.,
-        id: user.id,
-        email: user.email,
-        firstName: "vinsy",
-        lastName: "krishna",
-      },
-    },
-    onCompleted: (data) => {
-      // If error.
-      if (!isEmpty(updateError)) {
-        setErrorMessage(updateError.graphQLErrors[0].message);
-      }
-    },
-    onError: (error) => {
-      if (error) {
-        if (!isEmpty(error)) {
-          setErrorMessage(error.graphQLErrors[0].message);
-        }
-      }
-    },
-  });
-
+  const updateUser = async () => {
+    const payload = {
+      id: user.email,
+      first_name: userData.firstName,
+      last_name: userData.lastName,
+    };
+    const res = await axios.post(
+      `${server}/wp-json/edit/account/detail`,
+      payload
+    );
+    if (res.status === 200) {
+      setSuccessMessage("Data updated successfully...");
+    }
+    console.log(res, "userup");
+  };
+  const handleChange = (e) => {
+    setSuccessMessage("");
+    setErrorMessage({ ...errorMessage, [e.target.name]: "" });
+    setUserData({ ...userData, [e.target.name]: e.target.value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateUser();
+    if (userData.firstName.length < 2) {
+      setErrorMessage({ ...errorMessage, ["firstName"]: "Firstname invalid" });
+    } else if (userData.lastName.length < 2) {
+      setErrorMessage({ ...errorMessage, ["lastName"]: "Lastname invalid" });
+    } else {
+      updateUser();
+    }
   };
   useEffect(() => {
     setUserData({ firstName: user.firstName, lastName: user.lastName });
@@ -74,17 +75,12 @@ const AccountDetails = ({ authData }) => {
 
     <div className="account-page">
       <h2>Account Details</h2>
-      {console.log(
-        "errorMessage",
-        errorMessage,
-        "successMessage",
-        successMessage
-      )}
+      {console.log(userData, "userData")}
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry.{" "}
+        industry.
       </p>
-
+      {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
       {console.log(user, "userData")}
 
       <div className="account-tab row">
@@ -103,16 +99,26 @@ const AccountDetails = ({ authData }) => {
                 placeholder="enter your first name"
                 value={userData.firstName}
                 className="form-control"
+                onChange={handleChange}
+                name="firstName"
               />
+              {errorMessage.firstName && (
+                <p style={{ color: "#ff0000" }}>{errorMessage.firstName}</p>
+              )}
             </div>
             <div className="form-group">
               <label>Last Name *</label>
               <input
                 type="text"
+                name="lastName"
+                onChange={handleChange}
                 placeholder="enter your last name"
                 value={userData.lastName}
                 className="form-control"
               />
+              {errorMessage.lastName && (
+                <p style={{ color: "#ff0000" }}>{errorMessage.lastName}</p>
+              )}
             </div>
             <div className="form-group">
               <label>Email *</label>

@@ -3,7 +3,7 @@ import { isEmpty } from "lodash";
 import order1 from "../../../images/order-latest.png";
 import payment from "../../../images/PayPal.png";
 import Link from "gatsby-link";
-const Dashboard = ({ authData, orders, loading }) => {
+const Dashboard = ({ authData, orders, loading, billing, children }) => {
   const [showall, setShowall] = useState(false);
   if (isEmpty(authData)) {
     return null;
@@ -136,13 +136,7 @@ const Dashboard = ({ authData, orders, loading }) => {
             </div>
 
             <div className="col-md-6">
-              <div className="address-account">
-                <span>Default Billing Information</span>
-                <h2>Michele Angela</h2>
-                <h4>312-567-8866</h4>
-                <p>4473 Happy Hollow Road, Garland, North Carolina 28441</p>
-                <button className="addtess-btn">Edit</button>
-              </div>
+              {billing && <div className="address-account">{children}</div>}
 
               {/* <div className="address-account">
                 <span>Detault Shipping Adddress</span>

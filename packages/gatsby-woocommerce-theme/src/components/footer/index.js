@@ -21,7 +21,7 @@ export default () => {
       query={graphql`
         query FooterQuery {
           wp {
-            footer: getFooter {
+            getFooter {
               sidebarOne
             }
           }

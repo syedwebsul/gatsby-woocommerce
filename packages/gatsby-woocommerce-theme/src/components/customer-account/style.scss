@@ -40,3 +40,14 @@
   background: #e0e0e0;
   box-shadow: none;
 }
+.title-not-exist .address-account {
+  width: 100%;
+  padding: 0;
+}
+.account-address.title--exist .account-address-header {
+  padding-bottom: 0;
+}
+
+.account-address.title--exist .address-account {
+  padding: 0;
+}

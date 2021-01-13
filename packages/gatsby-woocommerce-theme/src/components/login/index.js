@@ -42,7 +42,9 @@ const Login = ({ setLoggedIn, setUserType }) => {
         };
 
         setAuth(authData);
-        setLoggedIn(true);
+        setTimeout(() => {
+          setLoggedIn(true);
+        }, 600);
       },
       onError: (error) => {
         if (error) {
@@ -148,7 +150,7 @@ const Login = ({ setLoggedIn, setUserType }) => {
             alt="loading"
           />
         )}
-    
+
         {!isEmpty(errorMessage) && (
           <div
             className="alert alert-danger"
@@ -180,10 +182,13 @@ const Login = ({ setLoggedIn, setUserType }) => {
             />
           </div>
           <div className="form-group check">
-            <input type="checkbox" id="keeplog"/> <label htmlFor="keeplog">Keep me logged in</label>
+            <input type="checkbox" id="keeplog" />{" "}
+            <label htmlFor="keeplog">Keep me logged in</label>
           </div>
           <div className="form-group">
-            <button className="login-btn" type="submit">Log in</button>
+            <button className="login-btn" type="submit">
+              Log in
+            </button>
           </div>
           <div className="already">
             <span>Don’t have an account?</span>{" "}

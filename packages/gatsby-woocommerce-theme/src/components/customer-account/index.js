@@ -77,6 +77,7 @@ const auth = isUserLoggedIn();
 
 const CustomerAccount = ({ handleLogout }) => {
   const [orders, setOrders] = useState([]);
+  const [billing, setBilling] = useState(null);
   const [loading, setLoading] = useState(false);
   const { user } = auth;
   const getOrders = async () => {
@@ -89,8 +90,20 @@ const CustomerAccount = ({ handleLogout }) => {
     }
   };
 
+  const getBillingInfo = async () => {
+    // setLoading(true);
+    const res = await userInstance.get(
+      `/wp-json/get/billing/details/?email=${user.email}`
+    );
+    console.log(res, "responce");
+    if (res.status === 200) {
+      setBilling(res.data);
+      // setLoading(false);
+    }
+  };
   useEffect(() => {
     getOrders();
+    getBillingInfo();
   }, []);
   return (
     // <div className="row">
@@ -188,7 +201,10 @@ const CustomerAccount = ({ handleLogout }) => {
                     authData={auth}
                     orders={orders}
                     loading={loading}
-                  />
+                    billing={billing}
+                  >
+                   <Addresses authData={auth} billing={billing} getBillingInfo={getBillingInfo}/>
+                  </Dashboard>
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-two">
                   <Orders orders={orders} />
@@ -200,7 +216,7 @@ const CustomerAccount = ({ handleLogout }) => {
                   <PaymentMethod />
                 </TabPanel> */}
                 <TabPanel tabId="vertical-tab-three">
-                  <Addresses    authData={auth}/>
+                  <Addresses title={true} authData={auth} billing={billing} getBillingInfo={getBillingInfo}/>
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-four">
                   <AccountDetails authData={auth} />

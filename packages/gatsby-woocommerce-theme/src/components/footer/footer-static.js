@@ -17,19 +17,22 @@ import React from "react";
 
 const Footer = ({ data }) => {
   const {
-    // wp: {
-    //   footer: { sidebarOne },
-    // },
+    wp: {
+      getFooter: { sidebarOne },
+    },
     footerMenuItems,
   } = data;
   return (
     <footer className="footer">
+      {console.log(data, "datadata")}
       <div className="container">
         <div className="footer__top">
-          {data.wp && data.wp.sidebarOne ? (
+          {sidebarOne ? (
             <div className="footer-box footer-one">
               <div
-                dangerouslySetInnerHTML={{ __html: sanitize(data.wp.sidebarOne) }}
+                dangerouslySetInnerHTML={{
+                  __html: sanitize(sidebarOne),
+                }}
                 className="footer__sidebar-one"
               />
 
