@@ -5,13 +5,22 @@ import { isUserLoggedIn } from "../../../utils/functions";
 import { isEmpty } from "lodash";
 import CreateAccount from "../create-account";
 
-const Billing = ({ input, handleOnChange }) => {
+const Billing = ({ input, handleOnChange, handleBillingAutoFill, billing }) => {
   const auth = isUserLoggedIn();
-
+  const handleBilling = (e) => {
+    handleBillingAutoFill(e.target.checked);
+  };
   return (
     <React.Fragment>
       <h3>Billing Details</h3>
-
+      {billing && billing.firstName && (
+        <div style={{ width: "100%" }}>
+          <label>
+            <input type="checkbox" onChange={handleBilling} />
+            Use default billing information
+          </label>
+        </div>
+      )}
       <div className="form-group">
         <label>First Name *</label>
         <input

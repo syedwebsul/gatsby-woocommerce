@@ -21,7 +21,6 @@ import PaymentMethod from "./paymentmethod";
 import { isEmpty } from "lodash";
 import { userInstance } from "../../config/axios.js";
 import axios from "axios";
-const auth = isUserLoggedIn();
 
 // const tabItems = [
 //   {
@@ -76,6 +75,7 @@ const auth = isUserLoggedIn();
 // };
 
 const CustomerAccount = ({ handleLogout }) => {
+  const [auth, setAuth] = useState(isUserLoggedIn());
   const [orders, setOrders] = useState([]);
   const [billing, setBilling] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -89,7 +89,9 @@ const CustomerAccount = ({ handleLogout }) => {
       setLoading(false);
     }
   };
-
+  const refreshUser = () => {
+    setAuth(isUserLoggedIn());
+  };
   const getBillingInfo = async () => {
     // setLoading(true);
     const res = await userInstance.get(
@@ -203,7 +205,11 @@ const CustomerAccount = ({ handleLogout }) => {
                     loading={loading}
                     billing={billing}
                   >
-                   <Addresses authData={auth} billing={billing} getBillingInfo={getBillingInfo}/>
+                    <Addresses
+                      authData={auth}
+                      billing={billing}
+                      getBillingInfo={getBillingInfo}
+                    />
                   </Dashboard>
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-two">
@@ -216,10 +222,15 @@ const CustomerAccount = ({ handleLogout }) => {
                   <PaymentMethod />
                 </TabPanel> */}
                 <TabPanel tabId="vertical-tab-three">
-                  <Addresses title={true} authData={auth} billing={billing} getBillingInfo={getBillingInfo}/>
+                  <Addresses
+                    title={true}
+                    authData={auth}
+                    billing={billing}
+                    getBillingInfo={getBillingInfo}
+                  />
                 </TabPanel>
                 <TabPanel tabId="vertical-tab-four">
-                  <AccountDetails authData={auth} />
+                  <AccountDetails authData={auth} refreshUser={refreshUser} />
                 </TabPanel>
               </Tabs>
             </div>

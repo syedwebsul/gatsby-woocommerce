@@ -4,15 +4,42 @@ import { Tabs, Tab, TabPanel, TabList } from "react-web-tabs";
 import { v4 } from "uuid";
 import axios from "axios";
 import { server } from "../../../config/keys";
-const AccountDetails = ({ authData }) => {
-  const { user } = authData;
+import { useMutation } from "@apollo/client";
+import REFRESHAUTHTOKEN from "../../../mutations/token-refresh";
+const AccountDetails = ({ authData, refreshUser }) => {
+  const { user, authToken } = authData;
   const [errorMessage, setErrorMessage] = useState({
     firstName: "",
     lastName: "",
   });
   const [successMessage, setSuccessMessage] = useState("");
   const [userData, setUserData] = useState({ firstName: "", lastName: "" });
-
+  const [
+    refreshJwtAuthToken,
+    { loading: refreshLoading, error: refreshError },
+  ] = useMutation(REFRESHAUTHTOKEN, {
+    variables: {
+      input: {
+        clientMutationId: v4(), // Generate a unique id.,
+        jwtRefreshToken: authToken,
+      },
+    },
+    onCompleted: (data) => {
+      // If error.
+      if (!isEmpty(refreshError)) {
+        // setErrorMessage(refreshError.graphQLErrors[0].message);
+      }
+      console.log(data, "refreshdate");
+    },
+    onError: (error) => {
+      console.log(error, "errordate");
+      if (error) {
+        if (!isEmpty(error)) {
+          // setErrorMessage(error.graphQLErrors[0].message);
+        }
+      }
+    },
+  });
   const updateUser = async () => {
     const payload = {
       id: user.email,
@@ -25,6 +52,15 @@ const AccountDetails = ({ authData }) => {
     );
     if (res.status === 200) {
       setSuccessMessage("Data updated successfully...");
+      const dt = authData;
+      dt.user.firstName = userData.firstName;
+      dt.user.lastName = userData.lastName;
+
+      if ("undefined" !== typeof window) {
+        localStorage.setItem("auth", JSON.stringify(dt));
+        refreshUser();
+      }
+      refreshJwtAuthToken();
     }
     console.log(res, "userup");
   };

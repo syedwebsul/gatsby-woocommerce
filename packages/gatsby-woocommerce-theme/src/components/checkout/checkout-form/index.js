@@ -10,7 +10,10 @@ import OrderSuccess from "../order-success";
 import GET_CART from "../../../queries/get-cart";
 import CHECKOUT_MUTATION from "../../../mutations/checkout";
 import CheckoutError from "../checkout-error";
-
+import { userInstance } from "../../../config/axios.js";
+import axios from "axios";
+import { isUserLoggedIn } from "../../../utils/functions";
+const auth = isUserLoggedIn();
 const CheckoutForm = () => {
   const initialState = {
     firstName: "",
@@ -54,10 +57,68 @@ const CheckoutForm = () => {
   // };
 
   const [cart, setCart] = useContext(AppContext);
+  const [billing, setBilling] = useState(null);
   const [input, setInput] = useState(initialState);
   const [orderData, setOrderData] = useState(null);
   const [requestError, setRequestError] = useState(null);
+  const getBillingInfo = async () => {
+    // setLoading(true);
+    if (auth && auth.user) {
+      const res = await userInstance.get(
+        `/wp-json/get/billing/details/?email=${auth.user.email}`
+      );
+      if (res.status === 200) {
+        setBilling(res.data);
+        // setLoading(false);
+      }
+    }
+  };
 
+  const handleBillingAutoFill = (tt) => {
+    if (tt) {
+      const dt = {
+        firstName: billing.billing_first_name,
+        lastName: billing.billing_last_name,
+        company: billing.billing_company,
+        country: billing.billing_country,
+        address1: billing.billing_address_1,
+        address2: billing.billing_address_2,
+        city: billing.billing_city,
+        state: billing.billing_state,
+        createAccount: false,
+        postcode: billing.billing_postcode,
+        phone: billing.billing_phone,
+        email: billing.billing_email,
+        username: "",
+        password: "",
+        customerNote: "",
+        paymentMethod: "",
+        errors: null,
+      };
+      setInput(dt);
+    } else {
+      const dt = {
+        firstName: "",
+        lastName: "",
+        company: "",
+        country: "",
+        address1: "",
+        address2: "",
+        city: "",
+        state: "",
+        postcode: "",
+        phone: "",
+        email: "",
+        createAccount: false,
+        username: "",
+        password: "",
+        customerNote: "",
+        paymentMethod: "",
+        errors: null,
+      };
+      setInput(dt);
+    }
+  };
   // Get Cart Data.
   const { data, refetch } = useQuery(GET_CART, {
     notifyOnNetworkStatusChange: true,
@@ -127,7 +188,9 @@ const CheckoutForm = () => {
       setInput(newState);
     }
   };
-
+  useEffect(() => {
+    getBillingInfo();
+  }, []);
   useEffect(() => {
     if (null !== orderData) {
       // Call the checkout mutation when the value for orderData changes/updates.
@@ -147,9 +210,15 @@ const CheckoutForm = () => {
 
             <div className="col-md-8">
               <div className="checkout-form">
-                <Billing input={input} handleOnChange={handleOnChange} />
+                <Billing
+                  billing={billing}
+                  input={input}
+                  handleOnChange={handleOnChange}
+                  handleBillingAutoFill={handleBillingAutoFill}
+                />
               </div>
             </div>
+            {console.log(billing, "billing")}
 
             <div className="col-md-4">
               <div className="checkout-sidebar">
