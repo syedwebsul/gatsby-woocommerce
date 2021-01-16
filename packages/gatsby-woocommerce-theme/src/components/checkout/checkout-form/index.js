@@ -126,6 +126,7 @@ const CheckoutForm = () => {
       // console.warn( 'completed GET_CART' );
 
       // Update cart in the localStorage.
+  
       const updatedCart = getFormattedCart(data);
       localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
 
@@ -217,8 +218,7 @@ const CheckoutForm = () => {
                   handleBillingAutoFill={handleBillingAutoFill}
                 />
               </div>
-            </div>
-            {console.log(billing, "billing")}
+            </div>          
 
             <div className="col-md-4">
               <div className="checkout-sidebar">

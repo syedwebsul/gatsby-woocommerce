@@ -23,8 +23,7 @@ const Footer = ({ data }) => {
     footerMenuItems,
   } = data;
   return (
-    <footer className="footer">
-      {console.log(data, "datadata")}
+    <footer className="footer">    
       <div className="container">
         <div className="footer__top">
           {sidebarOne ? (

@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import './style.scss'
 import { AppContext } from "../../context/AppContext";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import carticon from "../../../images/cart-outline.svg";
 import { isEmpty } from "lodash";
 import Link from "gatsby-link";
 
@@ -25,7 +24,7 @@ const CartDropDown = ({ isDropdownOpen }) => {
 				<div className="cart-icon-wrp">
 					<Link to="/cart">
 						{/* eslint-disable */}
-						<span className="cart-icon" role="img"><img src={carticon} alt="cart" /></span>
+						<span className="cart-icon" role="img">🛒</span>
 						<span className="badge">{ productsCount }</span>
 					</Link>
 				</div>
@@ -35,7 +34,7 @@ const CartDropDown = ({ isDropdownOpen }) => {
 				</div>
 			</div>
 			<ul className="shopping-cart-items">
-				{ cart.products.map( product => (
+				{ cart?.products.map( product => (
 					<li className="clearfix" key={ product.productId }>
 						{!isEmpty(product.image) ? (
 							<figure>

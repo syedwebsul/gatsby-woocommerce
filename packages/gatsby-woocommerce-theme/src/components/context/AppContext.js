@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
-export const AppContext = React.createContext([{}, () => {}]);
+export const AppContext = createContext([{}, () => {}]);
 
 export const AppProvider = (props) => {
   const [cart, setCart] = useState(null);

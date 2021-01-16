@@ -40,7 +40,7 @@ module.exports = ({ wordPressUrl, gatsbySiteUrl, googleTagManagerId, fbAppId }) 
         },
         debug: {
           graphql: {
-            copyHtmlResponseOnError: true,
+            // copyHtmlResponseOnError: true,
             showQueryOnError: false,
             showQueryVarsOnError: true,
             copyQueryOnError: true,
@@ -49,7 +49,7 @@ module.exports = ({ wordPressUrl, gatsbySiteUrl, googleTagManagerId, fbAppId }) 
             onlyReportCriticalErrors: true,
           },
         },
-        excludeFieldNames: [`blocksJSON`, `saveContent`],
+        excludeFieldNames: [`blocksJSON`, `saveContent`, `subscribedata`],
         type: {
           Post: {
             limit:

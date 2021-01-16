@@ -22,7 +22,7 @@ export default () => {
             edges {
               node {
                 id
-                productId
+                databaseId
                 nodeType
                 link
                 description
@@ -54,35 +54,7 @@ export default () => {
                     name
                   }
                 }
-                ... on WpSimpleProduct {
-                  id
-                  name
-                  price
-                }
-                ... on WpVariableProduct {
-                  id
-                  name
-                  price
-                }
-                ... on WpExternalProduct {
-                  id
-                  name
-                  price
-                  externalUrl
-                }
-                ... on WpGroupProduct {
-                  id
-                  name
-                  products {
-                    nodes {
-                      ... on WpSimpleProduct {
-                        id
-                        name
-                        price
-                      }
-                    }
-                  }
-                }
+              
                 seo {
                   canonical
                   title

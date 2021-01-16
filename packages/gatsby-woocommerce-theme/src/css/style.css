@@ -1828,7 +1828,7 @@ body{
 }
 
 
-.my-orders .cart-table table tr td.cancelled span {
+.my-orders .cart-table table tr td.cancelled span, .my-orders .cart-table table tr td.failed span {
     background: #FFF3F4;
     border-radius: 8px;
     font-weight: 600;

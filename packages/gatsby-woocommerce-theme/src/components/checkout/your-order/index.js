@@ -18,7 +18,7 @@ const Index = ( { cart } ) => {
                         </tr>
                       </thead>
                       <tbody>
-
+   
 					  { cart.products.length && (
 							cart.products.map( item => (
 								<CheckoutCartItem key={ item.productId } item={ item } />

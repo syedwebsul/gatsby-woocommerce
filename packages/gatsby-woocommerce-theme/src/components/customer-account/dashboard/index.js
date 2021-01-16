@@ -42,7 +42,7 @@ const Dashboard = ({ authData, orders, loading, billing, children }) => {
             <div className="col-md-6">
               <div className="latest-order">
                 <h3>Latest Order</h3>
-                {console.log(orders, "orders")}
+            
                 {orders.length ? (
                   <>
                     {orders.map((el, i) => {

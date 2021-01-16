@@ -29,10 +29,10 @@ const AccountDetails = ({ authData, refreshUser }) => {
       if (!isEmpty(refreshError)) {
         // setErrorMessage(refreshError.graphQLErrors[0].message);
       }
-      console.log(data, "refreshdate");
+     
     },
     onError: (error) => {
-      console.log(error, "errordate");
+    
       if (error) {
         if (!isEmpty(error)) {
           // setErrorMessage(error.graphQLErrors[0].message);
@@ -62,7 +62,7 @@ const AccountDetails = ({ authData, refreshUser }) => {
       }
       refreshJwtAuthToken();
     }
-    console.log(res, "userup");
+  
   };
   const handleChange = (e) => {
     setSuccessMessage("");
@@ -111,13 +111,13 @@ const AccountDetails = ({ authData, refreshUser }) => {
 
     <div className="account-page">
       <h2>Account Details</h2>
-      {console.log(userData, "userData")}
+    
       <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry.
       </p>
       {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-      {console.log(user, "userData")}
+    
 
       <div className="account-tab row">
         {/* <Tabs defaultTab="account">

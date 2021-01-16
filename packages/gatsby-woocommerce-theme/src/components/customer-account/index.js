@@ -97,7 +97,7 @@ const CustomerAccount = ({ handleLogout }) => {
     const res = await userInstance.get(
       `/wp-json/get/billing/details/?email=${user.email}`
     );
-    console.log(res, "responce");
+   
     if (res.status === 200) {
       setBilling(res.data);
       // setLoading(false);

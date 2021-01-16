@@ -23,8 +23,7 @@ const OrderDetails = () => {
     }
   }, []);
   return (
-    <Layout>
-      {console.log(order, "order")}
+    <Layout>    
       <div className="container">
         <div className="col-md-6">
           {!loading ? (

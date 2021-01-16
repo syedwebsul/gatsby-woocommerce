@@ -13,7 +13,7 @@ const AddToCart = (props) => {
 
   const productQtyInput = {
     clientMutationId: v4(), // Generate a unique id.
-    productId: product.productId,
+    productId: product?.databaseId,
   };
 
   /* eslint-disable */
@@ -29,11 +29,12 @@ const AddToCart = (props) => {
 
       // Update cart in the localStorage.
       const updatedCart = getFormattedCart(data);
+
       localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
 
       // Update cart data in React Context.
       setCart(updatedCart);
-    },
+    }
   });
 
   // Add to Cart Mutation.
@@ -74,16 +75,16 @@ const AddToCart = (props) => {
       {/*	Check if its an external product then put its external buy link */}
       {"ExternalProduct" === product.nodeType ? (
         <a href={product.externalUrl} target="_blank">
-          <button className="btn-cart">Buy Now</button>
+          <button className="btn btn-outline-dark">Buy Now</button>
         </a>
       ) : (
-        <button onClick={handleAddToCartClick} className="btn-cart">
+        <button onClick={handleAddToCartClick} className="btn btn-outline-dark">
           Add to cart
         </button>
       )}
       {showViewCart ? (
         <Link to="/cart">
-          <button className="btn-cart">
+          <button className="woo-next-view-cart-btn btn btn-outline-dark">
             View Cart
           </button>
         </Link>
