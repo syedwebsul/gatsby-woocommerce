@@ -13,11 +13,11 @@ const Billing = ({ input, handleOnChange, handleBillingAutoFill, billing }) => {
   return (
     <React.Fragment>
       <h3>Billing Details</h3>
-      {billing && billing.firstName && (
+      {billing && billing.billing_first_name && (
         <div style={{ width: "100%" }}>
           <label>
             <input type="checkbox" onChange={handleBilling} />
-            Use default billing information
+           {" "} Use default billing information
           </label>
         </div>
       )}

@@ -13,6 +13,13 @@ import CheckoutError from "../checkout-error";
 import { userInstance } from "../../../config/axios.js";
 import axios from "axios";
 import { isUserLoggedIn } from "../../../utils/functions";
+import {
+  STRIPE_PUBLISHABLE_KEY,
+  STRIPE_SECRET_KEY,
+  STRIPE_PUBLISHABLE_TEST_KEY,
+  STRIPE_SECRET_TEST_KEY,
+} from "../../../utils/keys";
+import StripeCheckout from "../../../stripe";
 const auth = isUserLoggedIn();
 const CheckoutForm = () => {
   const initialState = {
@@ -32,7 +39,9 @@ const CheckoutForm = () => {
     password: "",
     customerNote: "",
     paymentMethod: "",
+    isPaid: false,
     errors: null,
+    transactionId: null,
   };
 
   // Use this for testing purposes, so you dont have to fill the checkout form over an over again.
@@ -57,6 +66,7 @@ const CheckoutForm = () => {
   // };
 
   const [cart, setCart] = useContext(AppContext);
+  const [validated, setValidated] = useState(false);
   const [billing, setBilling] = useState(null);
   const [input, setInput] = useState(initialState);
   const [orderData, setOrderData] = useState(null);
@@ -93,7 +103,9 @@ const CheckoutForm = () => {
         password: "",
         customerNote: "",
         paymentMethod: "",
+        isPaid: false,
         errors: null,
+        transactionId: null,
       };
       setInput(dt);
     } else {
@@ -114,7 +126,9 @@ const CheckoutForm = () => {
         password: "",
         customerNote: "",
         paymentMethod: "",
+        isPaid: false,
         errors: null,
+        transactionId: null,
       };
       setInput(dt);
     }
@@ -126,10 +140,8 @@ const CheckoutForm = () => {
       // console.warn( 'completed GET_CART' );
 
       // Update cart in the localStorage.
-  
       const updatedCart = getFormattedCart(data);
       localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
-
       // Update cart data in React Context.
       setCart(updatedCart);
     },
@@ -161,6 +173,20 @@ const CheckoutForm = () => {
    *
    * @return {void}
    */
+  const submitOrderFinal = (isPaid, transactionId) => {
+    const checkOutData = createCheckoutData({
+      ...input,
+      isPaid: isPaid,
+      transactionId: transactionId,
+    });
+    setOrderData(checkOutData);
+    setRequestError(null);
+  };
+  const getPaymentResponse = (payment) => {
+    if (payment && payment.id) {
+      submitOrderFinal(true, payment.id);
+    }
+  };
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const result = validateAndSanitizeCheckoutForm(input);
@@ -168,9 +194,11 @@ const CheckoutForm = () => {
       setInput({ ...input, errors: result.errors });
       return;
     }
-    const checkOutData = createCheckoutData(input);
-    setOrderData(checkOutData);
-    setRequestError(null);
+    if (input.paymentMethod === "cod") {
+      submitOrderFinal(false, `cod_${new Date().getTime()}`);
+    } else {
+      setValidated(true);
+    }
   };
 
   /*
@@ -181,6 +209,7 @@ const CheckoutForm = () => {
    * @return {void}
    */
   const handleOnChange = (event) => {
+    setValidated(false);
     if ("createAccount" === event.target.name) {
       const newState = { ...input, [event.target.name]: !input.createAccount };
       setInput(newState);
@@ -199,6 +228,13 @@ const CheckoutForm = () => {
       checkout();
     }
   }, [orderData]);
+  const getCartTotal = (cart) => {
+    if (cart && cart.totalProductsPrice) {
+      return parseInt(cart.totalProductsPrice.split("$")[1] * 100);
+    } else {
+      return false;
+    }
+  };
 
   return (
     <>
@@ -218,8 +254,7 @@ const CheckoutForm = () => {
                   handleBillingAutoFill={handleBillingAutoFill}
                 />
               </div>
-            </div>          
-
+            </div>
             <div className="col-md-4">
               <div className="checkout-sidebar">
                 <h3>Your Order</h3>
@@ -227,7 +262,9 @@ const CheckoutForm = () => {
                 <YourOrder cart={cart} />
 
                 {/*Payment*/}
-                <PaymentModes input={input} handleOnChange={handleOnChange} />
+                {!validated && (
+                  <PaymentModes input={input} handleOnChange={handleOnChange} />
+                )}
 
                 <div className="payment-btn-info">
                   <p>
@@ -236,11 +273,22 @@ const CheckoutForm = () => {
                     other purposes described in our privacy policy.
                   </p>
 
-                  <button className="place-order" type="submit">
-                    Place Order
-                  </button>
-                </div>
+                  {!validated && (
+                    <button className="place-order" type="submit">
+                      Place Order
+                    </button>
+                  )}
 
+                  {input.paymentMethod === "stripe" &&
+                    getCartTotal(cart) &&
+                    validated && (
+                      <StripeCheckout
+                        sendPaymentResponse={getPaymentResponse}
+                        amount={getCartTotal(cart)}
+                      />
+                    )}
+                </div>
+                {console.log(data, "cart")}
                 {/* Checkout Loading*/}
                 {checkoutLoading && <p>Processing Order...</p>}
                 {requestError && <CheckoutError requestError={requestError} />}

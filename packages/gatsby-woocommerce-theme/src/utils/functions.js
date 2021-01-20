@@ -306,7 +306,7 @@ export const getFormattedCart = (data) => {
   return formattedCart;
 };
 
-export const createCheckoutData = (order) => {
+export const createCheckoutData = (order, metaData) => {
   const checkoutData = {
     clientMutationId: v4(),
     billing: {
@@ -337,8 +337,8 @@ export const createCheckoutData = (order) => {
     },
     shipToDifferentAddress: false,
     paymentMethod: order.paymentMethod,
-    isPaid: false,
-    transactionId: "hjkhjkhsdsdiui",
+    isPaid: order.isPaid,
+    transactionId: order.transactionId,
     customerNote: order.customerNote,
   };
 
@@ -351,6 +351,8 @@ export const createCheckoutData = (order) => {
 
   return checkoutData;
 };
+
+
 
 /**
  * Get the updated items in the below format required for mutation input.

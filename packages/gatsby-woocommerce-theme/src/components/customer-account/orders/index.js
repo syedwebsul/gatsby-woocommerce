@@ -88,7 +88,7 @@ const Orders = ({ orders }) => {
                       <span>{el.status}</span>
                     </td>
                     <td className="order-price">
-                      {el.currency === "USD" ? "$" : el.currency} {el.total} <span>for {el.products.length} product{el.products.length > 1 ? "s" : ""}</span>
+                      {el.currency === "USD" ? "$" : el.currency} {el.total} <span>for {el.products && el.products.length} product{el.products && el.products.length > 1 ? "s" : ""}</span>
                     </td>
                     <td>
                       <Link to={`/order-details?orderId=${el.id}`} className="view-order-btn">

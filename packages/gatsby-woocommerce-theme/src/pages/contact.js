@@ -4,8 +4,12 @@ import phone from "../images/phone-icon.svg";
 import email from "../images/mail-icon.svg";
 import { emailRegex } from "../config/keys.js";
 import { userInstance } from "../config/axios.js";
+import { graphql, StaticQuery } from "gatsby";
 import axios from "axios";
-const Contact = () => {
+const Contact = ({ data }) => {
+  const {
+    wpPage: { wpContactQuery },
+  } = data;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,7 +50,7 @@ const Contact = () => {
         gatsbyinput: {
           name,
           email,
-          address:message
+          address: message,
         },
       });
       if (request.status === 200) {
@@ -57,8 +61,6 @@ const Contact = () => {
           message: "",
         });
       }
-
-   
     }
   };
   return (
@@ -69,17 +71,15 @@ const Contact = () => {
             <div className="row">
               <div className="col-md-5">
                 <div className="contact-info">
-                  <h2>Contact Support</h2>
-                  <p>
-                    Have an inquiry or feedback for us? Fill out the form to
-                    contact our team.{" "}
-                  </p>
+                  <h2>{wpContactQuery.contactHeading}</h2>
+                  <p>{wpContactQuery.contactDescription} </p>
                   <ul>
                     <li>
-                      <img src={phone} alt="" /> +1-305-552-9623
+                      <img src={phone} alt="" />{" "}
+                      {wpContactQuery.mobileNumberText}
                     </li>
                     <li>
-                      <img src={email} alt="" /> support@sergiosmarketplace.com
+                      <img src={email} alt="" /> {wpContactQuery.emailText}
                     </li>
                   </ul>
                 </div>
@@ -94,14 +94,14 @@ const Contact = () => {
                   )}
                   <form onSubmit={onSubmit}>
                     <div className="form-group">
-                      <label>Name *</label>
+                      <label>{wpContactQuery.nameLabel} *</label>
                       <input
                         ref={formFieldRefName}
                         type="text"
                         name="name"
                         value={name}
                         onChange={handleChange}
-                        placeholder="enter your name"
+                        placeholder={wpContactQuery.namePlaceholderText}
                         className="form-control"
                       />
                       {formDataError.name && (
@@ -109,14 +109,14 @@ const Contact = () => {
                       )}
                     </div>
                     <div className="form-group">
-                      <label>Email *</label>
+                      <label>{wpContactQuery.emailLabel} *</label>
                       <input
                         ref={formFieldRefEmail}
                         type="email"
                         value={email}
                         name="email"
                         onChange={handleChange}
-                        placeholder="enter your email"
+                        placeholder={wpContactQuery.emailPlaceholderText}
                         className="form-control"
                       />
                       {formDataError.email && (
@@ -124,13 +124,13 @@ const Contact = () => {
                       )}
                     </div>
                     <div className="form-group full-w">
-                      <label>Message *</label>
+                      <label>{wpContactQuery.messageLabel} *</label>
                       <textarea
                         name="message"
                         ref={formFieldRefMessage}
                         value={message}
                         onChange={handleChange}
-                        placeholder="enter your message"
+                        placeholder={wpContactQuery.messagePlaceholderText}
                         className="form-control"
                       ></textarea>
                       {formDataError.message && (
@@ -152,5 +152,36 @@ const Contact = () => {
     </Layout>
   );
 };
-
-export default Contact;
+export default () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query wpContactPageQuery {
+          wpPage(uri: { eq: "/contacts/" }) {
+            id
+            wpContactQuery {
+              addressFooter
+              contactDescription
+              contactHeading
+              contactTitleFooter
+              emailLabel
+              emailPlaceholderText
+              emailText
+              fieldGroupName
+              instagramTitleFooter
+              locationTitleFooter
+              messageLabel
+              messagePlaceholderText
+              mobileNumberText
+              nameLabel
+              namePlaceholderText
+              phoneNumberFooter
+              phoneTitleFooter
+            }
+          }
+        }
+      `}
+      render={(data) => (data ? <Contact data={data} /> : null)}
+    />
+  );
+};

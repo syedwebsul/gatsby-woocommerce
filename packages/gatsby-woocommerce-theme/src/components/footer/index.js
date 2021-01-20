@@ -20,6 +20,28 @@ export default () => {
     <StaticQuery
       query={graphql`
         query FooterQuery {
+          wpPage(uri: { eq: "/contacts/" }) {
+            id
+            wpContactQuery {
+              addressFooter
+              contactDescription
+              contactHeading
+              contactTitleFooter
+              emailLabel
+              emailPlaceholderText
+              emailText
+              fieldGroupName
+              instagramTitleFooter
+              locationTitleFooter
+              messageLabel
+              messagePlaceholderText
+              mobileNumberText
+              nameLabel
+              namePlaceholderText
+              phoneNumberFooter
+              phoneTitleFooter
+            }
+          }
           wp {
             getFooter {
               sidebarOne

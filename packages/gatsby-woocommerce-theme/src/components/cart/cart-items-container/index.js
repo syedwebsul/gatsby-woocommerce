@@ -109,7 +109,8 @@ const CartItemsContainer = () => {
           <h1 className="mt-5 woo-next-cart-heading">Cart</h1>
           <div className="woo-next-cart-table-row row">
             <div className="woo-next-cart-table col-md-8 mb-md-0 mb-5">
-	            {cart.products.length &&
+	            <table>
+              {cart.products.length &&
 	            cart.products.map((item) => (
 		            <CartItem
 			            key={item.productId}
@@ -120,6 +121,7 @@ const CartItemsContainer = () => {
 			            updateCart={updateCart}
 		            />
 	            ))}
+              </table>
 
               {/*Clear entire cart*/}
               <div className="clear-cart">

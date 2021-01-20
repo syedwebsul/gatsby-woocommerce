@@ -10,7 +10,6 @@ import "./style.scss";
 
 const AddToCart = (props) => {
   const { product } = props;
-
   const productQtyInput = {
     clientMutationId: v4(), // Generate a unique id.
     productId: product?.databaseId,
@@ -20,7 +19,6 @@ const AddToCart = (props) => {
   const [cart, setCart] = useContext(AppContext);
   const [showViewCart, setShowViewCart] = useState(false);
   const [requestError, setRequestError] = useState(null);
-
   // Get Cart Data.
   const { data, refetch } = useQuery(GET_CART, {
     notifyOnNetworkStatusChange: true,
@@ -29,12 +27,10 @@ const AddToCart = (props) => {
 
       // Update cart in the localStorage.
       const updatedCart = getFormattedCart(data);
-
       localStorage.setItem("woo-next-cart", JSON.stringify(updatedCart));
-
       // Update cart data in React Context.
       setCart(updatedCart);
-    }
+    },
   });
 
   // Add to Cart Mutation.

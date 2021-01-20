@@ -36,21 +36,21 @@ const Index = ( { cart } ) => {
                      <div className="checkout-shipping">
                        <h4>Shipping</h4>
                        <div className="shipping-list">
-                        <input type="radio" name="free" />
+                        {/* <input type="radio" name="free" checked={true}/> */}
                          <div className="shipping-details">
-                            <h6>Free Shipping</h6>
+                            <h6>Shipping charges</h6>
                             <p>Giving information on its origins, as well as a random Lipsum generator</p>
                           </div>
                           <div className="shipping-price">
                              <h5>$0.00</h5>
                           </div>
                        </div>
-                       <div className="shipping-list">
+                       {/* <div className="shipping-list">
                         <input type="radio" name="free" />
                          <div className="shipping-details">
                             <h6>Other Shipping Method</h6>
                           </div>
-                       </div>
+                       </div> */}
                     </div> 
 
 

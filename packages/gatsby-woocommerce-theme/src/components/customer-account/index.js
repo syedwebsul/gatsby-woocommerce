@@ -97,7 +97,7 @@ const CustomerAccount = ({ handleLogout }) => {
     const res = await userInstance.get(
       `/wp-json/get/billing/details/?email=${user.email}`
     );
-   
+
     if (res.status === 200) {
       setBilling(res.data);
       // setLoading(false);
@@ -107,30 +107,8 @@ const CustomerAccount = ({ handleLogout }) => {
     getOrders();
     getBillingInfo();
   }, []);
-  return (
-    // <div className="row">
-    //   <div className="account-details-menu col-3">
-    //     {tabItems.map(({ id, icon, title }) =>
-    //       5 === id ? (
-    //         <Logout key={title} handleLogout={handleLogout} />
-    //       ) : (
-    //         <TabItemComponent
-    //           key={title}
-    //           icon={icon}
-    //           title={title}
-    //           onItemClicked={() => setActive(id)}
-    //           isActive={active === id}
-    //         />
-    //       )
-    //     )}
-    //   </div>
-    //   <div className="account-details-content card col-9 px-0">
-    //     {tabItems.map(({ id, content }) => {
-    //       return active === id ? <div key={id}>{content}</div> : "";
-    //     })}
-    //   </div>
-    // </div>
 
+  return (
     <div className="my-account-wrapper">
       <div className="my-account-header">
         <div className="container">
@@ -181,12 +159,7 @@ const CustomerAccount = ({ handleLogout }) => {
                   <Tab tabFor="vertical-tab-two">
                     <img src={order} alt="" /> Orders
                   </Tab>
-                  {/* <Tab tabFor="vertical-tab-three">
-                    <img src={track} alt="" /> Track My Order
-                  </Tab> */}
-                  {/* <Tab tabFor="vertical-tab-four">
-                    <img src={payment} alt="" /> Payment Method
-                  </Tab> */}
+
                   <Tab tabFor="vertical-tab-three">
                     <img src={address} alt="" />
                     Billing Information
@@ -215,12 +188,7 @@ const CustomerAccount = ({ handleLogout }) => {
                 <TabPanel tabId="vertical-tab-two">
                   <Orders orders={orders} />
                 </TabPanel>
-                {/* <TabPanel tabId="vertical-tab-three">
-                  <TrackOrders />
-                </TabPanel> */}
-                {/* <TabPanel tabId="vertical-tab-four">
-                  <PaymentMethod />
-                </TabPanel> */}
+
                 <TabPanel tabId="vertical-tab-three">
                   <Addresses
                     title={true}

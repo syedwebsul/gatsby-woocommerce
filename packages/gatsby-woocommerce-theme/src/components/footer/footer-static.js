@@ -21,9 +21,11 @@ const Footer = ({ data }) => {
       getFooter: { sidebarOne },
     },
     footerMenuItems,
+    wpPage: { wpContactQuery },
   } = data;
+
   return (
-    <footer className="footer">    
+    <footer className="footer">
       <div className="container">
         <div className="footer__top">
           {sidebarOne ? (
@@ -78,23 +80,23 @@ const Footer = ({ data }) => {
           )}
 
           <div className="footer-box footer-three">
-            <h2>Contact Info</h2>
+            <h2>{wpContactQuery.contactTitleFooter}</h2>
 
             <div className="address-box">
               <img src={address} alt="" />
-              <h4>Our Location:</h4>
-              <p>12380 SW St, Miami, FL 33186</p>
+              <h4>{wpContactQuery.locationTitleFooter}</h4>
+              <p>{wpContactQuery.addressFooter}</p>
             </div>
 
             <div className="address-box">
               <img src={phone} alt="" />
-              <h4>Phones:</h4>
-              <p>+1-305-552-9623</p>
+              <h4>{wpContactQuery.phoneTitleFooter}</h4>
+              <p>{wpContactQuery.phoneNumberFooter}</p>
             </div>
           </div>
 
           <div className="footer-box footer-four">
-            <h2>Instagram post</h2>
+            <h2>{wpContactQuery.instagramTitleFooter}</h2>
 
             <div className="insta-post">
               <img src={insta1} alt="" />

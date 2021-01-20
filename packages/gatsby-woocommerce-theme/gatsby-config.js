@@ -49,7 +49,7 @@ module.exports = ({ wordPressUrl, gatsbySiteUrl, googleTagManagerId, fbAppId }) 
             onlyReportCriticalErrors: true,
           },
         },
-        excludeFieldNames: [`blocksJSON`, `saveContent`, `subscribedata`],
+        excludeFieldNames: [`blocksJSON`, `saveContent`],
         type: {
           Post: {
             limit:

@@ -1855,7 +1855,7 @@ body{
     padding: 5px 0px;
 }
 
-.my-orders .cart-table table tr td.hold span {
+.my-orders .cart-table table tr td.hold span,.my-orders .cart-table table tr td.pending span {
     background: #FEF8EE;
     border-radius: 8px;
     font-weight: 600;

@@ -42,7 +42,6 @@ const Dashboard = ({ authData, orders, loading, billing, children }) => {
             <div className="col-md-6">
               <div className="latest-order">
                 <h3>Latest Order</h3>
-            
                 {orders.length ? (
                   <>
                     {orders.map((el, i) => {
@@ -51,12 +50,17 @@ const Dashboard = ({ authData, orders, loading, billing, children }) => {
                           return (
                             <div className="latet-order-list">
                               <div className="latest-order-detail">
-                                <img src={el.products[0].image_url} alt="" />
+                                <img
+                                  src={el.products && el.products[0].image_url}
+                                  alt=""
+                                />
                                 <div className="latest-order-info">
-                                  <h4>{el.products[0].item_name}</h4>
+                                  <h4>
+                                    {el.products && el.products[0].item_name}
+                                  </h4>
                                   <span>
-                                    {el.products[0].quantity} X{" "}
-                                    {el.products[0].item_name}{" "}
+                                    {el.products && el.products[0].quantity} X{" "}
+                                    {el.products && el.products[0].item_name}{" "}
                                   </span>
                                   <Link to={`/order-details?orderId=${el.id}`}>
                                     ..order details
@@ -77,12 +81,17 @@ const Dashboard = ({ authData, orders, loading, billing, children }) => {
                         return (
                           <div className="latet-order-list">
                             <div className="latest-order-detail">
-                              <img src={el.products[0].image_url} alt="" />
+                              <img
+                                src={el.products && el.products[0].image_url}
+                                alt=""
+                              />
                               <div className="latest-order-info">
-                                <h4>{el.products[0].item_name}</h4>
+                                <h4>
+                                  {el.products && el.products[0].item_name}
+                                </h4>
                                 <span>
-                                  {el.products[0].quantity} X{" "}
-                                  {el.products[0].item_name}{" "}
+                                  {el.products && el.products[0].quantity} X{" "}
+                                  {el.products && el.products[0].item_name}{" "}
                                 </span>
                                 <Link to={`/order-details?orderId=${el.id}`}>
                                   ..order details
