@@ -1,12 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import StripeCheckout from "react-stripe-checkout";
-import {
-  STRIPE_PUBLISHABLE_KEY,
-  STRIPE_SECRET_KEY,
-  STRIPE_PUBLISHABLE_TEST_KEY,
-  STRIPE_SECRET_TEST_KEY,
-} from "../utils/keys";
+
 export default class extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +19,7 @@ export default class extends React.Component {
   render() {
     return (
       <StripeCheckout
-        stripeKey={STRIPE_PUBLISHABLE_TEST_KEY}
+        stripeKey={process.env.STRIPE_PUBLISHABLE_KEY}
         name="Sergio's Marketplace" // the pop-in header title
         description="Order payment" // the pop-in header subtitle
         image="https://admin.sergiosmarketplace.com/wp-content/uploads/2020/12/cropped-home-sergio-logo.png" // the pop-in header image (default none)
