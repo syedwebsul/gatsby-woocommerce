@@ -17,10 +17,10 @@ export default class extends React.Component {
 
   render() {
     console.log("process.env", process.env)
-    console.log("process.envSTRIPE_PUBLISHABLE_KEY", process.env.STRIPE_PUBLISHABLE_KEY)
+    console.log("process.envSTRIPE_PUBLISHABLE_KEY", process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
     return (
       <StripeCheckout
-        stripeKey={process.env.STRIPE_PUBLISHABLE_KEY}
+        stripeKey={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}
         name="Sergio's Marketplace" // the pop-in header title
         description="Order payment" // the pop-in header subtitle
         image="https://admin.sergiosmarketplace.com/wp-content/uploads/2020/12/cropped-home-sergio-logo.png" // the pop-in header image (default none)
