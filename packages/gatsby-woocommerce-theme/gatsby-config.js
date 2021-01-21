@@ -1,6 +1,3 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
 module.exports = ({ wordPressUrl, gatsbySiteUrl, googleTagManagerId, fbAppId }) => ({
   siteMetadata: {
     title: `Gatsby WooCommerce Theme`,

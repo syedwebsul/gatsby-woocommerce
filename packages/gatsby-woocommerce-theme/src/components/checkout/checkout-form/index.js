@@ -13,12 +13,6 @@ import CheckoutError from "../checkout-error";
 import { userInstance } from "../../../config/axios.js";
 import axios from "axios";
 import { isUserLoggedIn } from "../../../utils/functions";
-import {
-  STRIPE_PUBLISHABLE_KEY,
-  STRIPE_SECRET_KEY,
-  STRIPE_PUBLISHABLE_TEST_KEY,
-  STRIPE_SECRET_TEST_KEY,
-} from "../../../utils/keys";
 import StripeCheckout from "../../../stripe";
 const auth = isUserLoggedIn();
 const CheckoutForm = () => {
