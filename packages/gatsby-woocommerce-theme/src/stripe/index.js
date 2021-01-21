@@ -17,6 +17,7 @@ export default class extends React.Component {
 
 
   render() {
+    console.log("STRIPE_PUBLISHABLE_KEY", process.env.STRIPE_PUBLISHABLE_KEY)
     return (
       <StripeCheckout
         stripeKey={process.env.STRIPE_PUBLISHABLE_KEY}
