@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import StripeCheckout from "react-stripe-checkout";
-
+require('dotenv').config();
 export default class extends React.Component {
   constructor(props) {
     super(props);
