@@ -282,7 +282,6 @@ const CheckoutForm = () => {
                       />
                     )}
                 </div>
-                {console.log(data, "cart")}
                 {/* Checkout Loading*/}
                 {checkoutLoading && <p>Processing Order...</p>}
                 {requestError && <CheckoutError requestError={requestError} />}

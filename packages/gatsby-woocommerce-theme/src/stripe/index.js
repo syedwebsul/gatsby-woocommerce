@@ -11,13 +11,10 @@ export default class extends React.Component {
   
   };
   onClosed = (onclosed) => {
-    console.log(onclosed, "onclosed");
   };
 
 
-  render() {
-    console.log("process.env", process.env)
-    console.log("process.envSTRIPE_PUBLISHABLE_KEY", process.env.GATSBY_STRIPE_PUBLISHABLE_KEY)
+  render() {    
     return (
       <StripeCheckout
         stripeKey={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}
