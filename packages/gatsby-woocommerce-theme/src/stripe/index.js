@@ -56,7 +56,7 @@ export default class extends React.Component {
           </div>
         )}
         <StripeCheckout
-          stripeKey={"pk_test_nJsuTHvkxTYw1SKFGHDPKuXw00pUoLuwsa"}
+          stripeKey={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}
           name="Sergio's Marketplace" // the pop-in header title
           description="Order payment" // the pop-in header subtitle
           image="https://admin.sergiosmarketplace.com/wp-content/uploads/2020/12/cropped-home-sergio-logo.png" // the pop-in header image (default none)
