@@ -177,8 +177,10 @@ const CheckoutForm = () => {
     setRequestError(null);
   };
   const getPaymentResponse = (payment) => {
-    if (payment && payment.id) {
-      submitOrderFinal(true, payment.id);
+    if (payment && payment.data.status === "succeeded") {
+      submitOrderFinal(true, payment.data.balance_transaction);
+    }else{
+      submitOrderFinal(false, "0");
     }
   };
   const handleFormSubmit = (event) => {
@@ -277,6 +279,8 @@ const CheckoutForm = () => {
                     getCartTotal(cart) &&
                     validated && (
                       <StripeCheckout
+                      input={input}
+                      useremail={auth ? auth.user.email : null}
                         sendPaymentResponse={getPaymentResponse}
                         amount={getCartTotal(cart)}
                       />

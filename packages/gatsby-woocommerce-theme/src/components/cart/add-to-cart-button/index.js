@@ -62,6 +62,7 @@ const AddToCart = (props) => {
   });
 
   const handleAddToCartClick = () => {
+    console.log(product,'product')
     setRequestError(null);
     addToCart();
   };
