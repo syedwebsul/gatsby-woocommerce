@@ -82,10 +82,15 @@ const CustomerAccount = ({ handleLogout }) => {
   const { user } = auth;
   const getOrders = async () => {
     setLoading(true);
-    const payload = { customerdata: { id: user.email } };
+    const payload = { customerdata: { id: "" } };
     const res = await userInstance.post("/wp-json/get/customer/order", payload);
     if (res.status === 200) {
-      setOrders([...res.data]);
+      const ty = res.data.filter((el) => el.billing.email === user.email);
+     
+      if (ty.length) {
+        setOrders(ty);
+      }
+
       setLoading(false);
     }
   };

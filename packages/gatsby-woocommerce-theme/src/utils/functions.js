@@ -306,7 +306,7 @@ export const getFormattedCart = (data) => {
   return formattedCart;
 };
 
-export const createCheckoutData = (order, metaData) => {
+export const createCheckoutData = (order) => {
   const checkoutData = {
     clientMutationId: v4(),
     billing: {

@@ -26,17 +26,17 @@ const CreateAccount = ( { handleOnChange, input } ) => {
 						{/* Username */ }
 						<div className="form-group col-md-6">
 							<label htmlFor="username">
-								Username
+								Email
 								<abbr className="required" title="required">
 									*
 								</abbr>
 							</label>
 							<input
-								type="text"
+								type="email"
 								className="form-control woo-next-checkout-input"
 								id="username"
 								name="username"
-								placeholder="Enter username"
+								placeholder="Enter email"
 								value={ input.username }
 								onChange={ handleOnChange }
 							/>

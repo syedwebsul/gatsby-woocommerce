@@ -180,7 +180,7 @@ const CheckoutForm = () => {
     if (payment && payment.data.status === "succeeded") {
       submitOrderFinal(true, payment.data.balance_transaction);
     }else{
-      submitOrderFinal(false, "0");
+      submitOrderFinal(false, "00000000");
     }
   };
   const handleFormSubmit = (event) => {
