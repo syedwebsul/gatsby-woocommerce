@@ -14,7 +14,7 @@ export default class extends React.Component {
     this.setState({ loader: true });
 
     const payload = {
-      amount: this.props.amount,
+      amount: this.props.amount * 100,
       stripeToken: token.id,
       description: "Order payment",
       billing_details: {
